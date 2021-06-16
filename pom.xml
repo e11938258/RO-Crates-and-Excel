@@ -4,13 +4,114 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <packaging>jar</packaging>
+    <groupId>at.tuwien.rocreateprofil</groupId>
     <artifactId>ro-crate-excel-profile</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    
+    <name>RO Crate Excel Profile</name>
+    <description>TODO</description>
+    <url>https://github.com/e11938258/RO-Crates-and-Excel</url>
+    
+    <developers>
+        <developer>
+            <name>Martin Winkler</name>
+            <email></email>
+        </developer>
+        <developer>
+            <name>Filip Zoubek</name>
+            <email></email>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>
+        </connection>
+        <developerConnection>
+        </developerConnection>
+        <url>https://github.com/e11938258/RO-Crates-and-Excel</url>
+    </scm>
+    
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
     </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena-libs</artifactId>
+            <type>pom</type>
+            <version>4.1.0</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        
+        <!-- Log4j -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        
+        <!-- SpreadsheetTransformation - LOCAL! -->
+        <dependency>
+            <groupId>io.github.allNormal</groupId>
+            <artifactId>SpreadsheetTransformation</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        
+    </dependencies>
+    
+    <build>
+        <plugins>
+<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>at.tuwien.rocreateprofil.Run</mainClass>
+                                </manifest>
+                            </archive> 
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>at.tuwien.rocreateprofil.Run</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
