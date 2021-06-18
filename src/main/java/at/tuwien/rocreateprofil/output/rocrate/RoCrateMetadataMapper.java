@@ -3,6 +3,7 @@ package at.tuwien.rocreateprofil.output.rocrate;
 
 import at.tuwien.rocreateprofil.model.entity.Dataset;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
+import at.tuwien.rocreateprofil.output.rocrate.util.ContextEntityReferenceBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,7 +23,9 @@ public class RoCrateMetadataMapper {
     private static JSONArray buildGraphContents(RoCrateModel model) {
         JSONArray graphContent = new JSONArray();
         graphContent.add(buildRootEntity());
-        graphContent.add(describeRootEntity(model));
+        JSONObject rootEntityDescription = describeRootEntity(model);
+        graphContent.add(rootEntityDescription);
+        graphContent.add(buildApplicationContextEntity(model, (JSONObject) rootEntityDescription.get(APPLICATION)));
         graphContent.add(buildDatasetInfoEntity(model));
         // For each dataset
         for (Dataset dataset : model.getDatasets()) {
@@ -32,16 +35,28 @@ public class RoCrateMetadataMapper {
         return graphContent;
     }
 
-    private static Object describeRootEntity(RoCrateModel model) {
+    private static JSONObject buildApplicationContextEntity(RoCrateModel model, JSONObject application) {
+        String applicationID = (String) application.get(ID);
+        JSONObject applicationContextEntity = new JSONObject();
+        applicationContextEntity.put(ID, applicationID);
+        applicationContextEntity.put(TYPE, APPLICATION_TYPE);
+        applicationContextEntity.put(NAME, model.getApplicationName());
+        applicationContextEntity.put(VERSION, model.getApplicationVersion());
+
+        return applicationContextEntity;
+    }
+
+    private static JSONObject describeRootEntity(RoCrateModel model) {
         JSONObject aboutRootEntity = new JSONObject();
         aboutRootEntity.put(ID, ROOT_ENTITY_ABOUT_ID);
         aboutRootEntity.put(TYPE, TYPE_DATASET);
-        aboutRootEntity.put(DATE_PUBLISHED, model.getModified());
+        aboutRootEntity.put(DATE_PUBLISHED, model.getModified().toString());
         // TODO: make sure those values are filled with something relevant (they are mandatory)
         aboutRootEntity.put(NAME, model.getWorkbookName());
         aboutRootEntity.put(DESCRIPTION, StringUtils.EMPTY);
         // TODO: Don't think we have any licence at all if coming from excel
         aboutRootEntity.put(LICENSE, StringUtils.EMPTY);
+        aboutRootEntity.put(APPLICATION, ContextEntityReferenceBuilder.buildReference());
         return aboutRootEntity;
     }
 
@@ -83,7 +98,7 @@ public class RoCrateMetadataMapper {
         final JSONArray typeContent = new JSONArray();
         typeContent.add(DATASET);
         datasetInfoEntity.put(TYPE, typeContent);
-        
+
         // Has part
         final JSONArray parts = new JSONArray();
         for (Dataset dataset : model.getDatasets()) {

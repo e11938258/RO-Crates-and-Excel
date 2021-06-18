@@ -1,6 +1,7 @@
 package at.tuwien.rocreateprofil.arguments;
 
 import at.tuwien.rocreateprofil.arguments.handler.Excel2RoCrateArgumentHandler;
+import at.tuwien.rocreateprofil.arguments.handler.HelpArgumentHandler;
 import at.tuwien.rocreateprofil.arguments.handler.RoCrate2ExcelArgumentHandler;
 import at.tuwien.rocreateprofil.exception.Error;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
@@ -8,9 +9,10 @@ import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 public enum CommandLineArgument {
 
     EXCEL_TO_RO_CRATE("excel2rocrate", true, 1, Excel2RoCrateArgumentHandler.class),
-    RO_CRATE_TO_EXCEL("rocrate2excel", true, 1, RoCrate2ExcelArgumentHandler.class);
+    RO_CRATE_TO_EXCEL("rocrate2excel", true, 1, RoCrate2ExcelArgumentHandler.class),
+    HELP("help", false, 0, HelpArgumentHandler.class);
 
-    private CommandLineArgument(String argument, boolean consumesAdditionalArguments, int numberOfAdditionalArgumentsConsumed, Class handlerClass) {
+    CommandLineArgument(String argument, boolean consumesAdditionalArguments, int numberOfAdditionalArgumentsConsumed, Class handlerClass) {
         this.argument = argument;
         this.consumesAdditionalArguments = consumesAdditionalArguments;
         this.numberOfAdditionalArgumentsConsumed = numberOfAdditionalArgumentsConsumed;

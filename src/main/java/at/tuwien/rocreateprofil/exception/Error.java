@@ -12,7 +12,9 @@ public enum Error {
     FILE_NOT_FOUND("File '%s' was not found"),
     INVALID_EXCEL_FILE_SUFFIX("Excel file needs to have the 'xlsx' suffix (created by Excel 2007 onwards)"),
     RO_CRATE_ROOT_DIRECTORY_FAILED("Failed to create root directory '%s' for RO Crate! Check your permissions"),
-    RO_CRATE_CONTENT_WRITE_FAILED("Failed to write RO Crate content int '%s'! Check your permissions");
+    RO_CRATE_CONTENT_WRITE_FAILED("Failed to write RO Crate content int '%s'! Check your permissions"),
+    FAILED_TO_PROCESS_EXCEL_METADATA("Failed to process excel XML metadata. Ensure that the .xlsx file is not corrupted " +
+            "and check if it is supported by the application.");
 
     Error(String message) {
         this.message = message;

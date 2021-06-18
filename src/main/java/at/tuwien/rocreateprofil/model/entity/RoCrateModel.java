@@ -10,6 +10,8 @@ public class RoCrateModel {
     private Instant created;
     private Instant modified;
     private String workbookName;
+    private String applicationName;
+    private String applicationVersion;
 
     private List<Dataset> datasets = new ArrayList<>();
     private RoFile roFile;
@@ -60,5 +62,21 @@ public class RoCrateModel {
 
     public void setRoFile(RoFile roFile) {
         this.roFile = roFile;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
+    }
+
+    public String getApplicationVersion() {
+        return applicationVersion;
+    }
+
+    public void setApplicationVersion(String applicationVersion) {
+        this.applicationVersion = applicationVersion;
     }
 }

@@ -22,7 +22,7 @@ public class CommandLineArgumentHandler {
 
             ArgumentHandler handler = instantiateHandler(resolvedArg);
             parameterMap = handler.consumeAdditionalParameters(argStack, parameterMap);
-            Convertor resolvedConvertor = handler.resolve(parameterMap);
+            Convertor resolvedConvertor = handler.handle(parameterMap);
             guardOnlyOneConvertorResolved(resolvedConvertor);
             this.convertor = resolvedConvertor;
         }

@@ -1,5 +1,6 @@
 package at.tuwien.rocreateprofil.convertor;
 
+import at.tuwien.rocreateprofil.TemporaryResourceStore;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 import net.lingala.zip4j.ZipFile;
 
@@ -16,7 +17,9 @@ public class ExcelFileDecompressor {
 
     public static void unzip(File excelFile) {
         try {
-            new ZipFile(excelFile).extractAll(buildExtractedPath(excelFile).toString());
+            String extractedLocation = buildExtractedPath(excelFile).toString();
+            new ZipFile(excelFile).extractAll(extractedLocation);
+            TemporaryResourceStore.storeNewTemporaryResource(extractedLocation);
         } catch (IOException e) {
             throw new RoCrateProfileBaseException(EXCEL_UNZIP_FAILED, e.getMessage());
         }

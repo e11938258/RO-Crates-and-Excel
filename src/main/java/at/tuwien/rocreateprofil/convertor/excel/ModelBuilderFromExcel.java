@@ -1,7 +1,7 @@
 package at.tuwien.rocreateprofil.convertor.excel;
 
 import at.tuwien.rocreateprofil.convertor.excel.parser.ExcelContentsParser;
-import at.tuwien.rocreateprofil.convertor.excel.parser.metadata.ExcelFileMetadataParser;
+import at.tuwien.rocreateprofil.convertor.excel.parser.metadata.ExcelMetadataParser;
 import at.tuwien.rocreateprofil.convertor.excel.parser.ExcelParser;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 
@@ -16,7 +16,7 @@ public class ModelBuilderFromExcel {
     private String excelFileLocation;
 
     List<ExcelParser> parsers = Collections.emptyList();
-    private ExcelFileMetadataParser excelFileMetadataParser;
+    private ExcelMetadataParser excelFileMetadataParser;
     private ExcelContentsParser excelContentsParser;
 
     public ModelBuilderFromExcel(String excelFile) {
@@ -27,7 +27,7 @@ public class ModelBuilderFromExcel {
 
     private void initializeParsers(String excelFile) {
         ExcelFileGuard.guardValidExcelFile(excelFile);
-        excelFileMetadataParser = new ExcelFileMetadataParser();
+        excelFileMetadataParser = new ExcelMetadataParser();
         excelContentsParser = new ExcelContentsParser();
         this.parsers = Arrays.asList(excelFileMetadataParser, excelContentsParser);
     }

@@ -14,7 +14,7 @@ public interface ArgumentHandler {
 
     Map<String, Object> consumeAdditionalParameters(Stack<String> remainingArgumentStack, Map<String, Object> currentArgumentMap);
 
-    Convertor resolve(Map<String, Object> parameterMap);
+    Convertor handle(Map<String, Object> parameterMap);
 
     boolean wereParametersProcessed();
 

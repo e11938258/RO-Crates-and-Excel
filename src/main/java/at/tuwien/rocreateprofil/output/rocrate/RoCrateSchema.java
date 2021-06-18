@@ -14,11 +14,14 @@ public class RoCrateSchema {
     public static final String NAME = "name";
     public static final String DESCRIPTION = "description";
     public static final String LICENSE = "license";
-    
+
     public static final String DATASET = "dataset";
     public static final String HAS_PART = "hasPart";
     public static final String FILE = "file";
     public static final String ENCODING_FORMAT = "encodingFormat";
+    public static final String APPLICATION = "application";
+    public static final String APPLICATION_TYPE = "SoftwareApplication";
+    public static final String VERSION = "version";
 
     public static final String ID = "@id";
     // root entity mandatory values

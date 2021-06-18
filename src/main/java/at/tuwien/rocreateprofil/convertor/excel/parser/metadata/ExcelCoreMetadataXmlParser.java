@@ -1,39 +1,30 @@
 package at.tuwien.rocreateprofil.convertor.excel.parser.metadata;
 
+import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
-import javax.xml.XMLConstants;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.time.Instant;
+
+import static at.tuwien.rocreateprofil.exception.Error.FAILED_TO_PROCESS_EXCEL_METADATA;
 
 public class ExcelCoreMetadataXmlParser {
 
     private static final String CORE_METADATA_FILE = "docProps/core.xml";
 
     public static void parseIntoModel(Path extractedPath, RoCrateModel model) {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        File xmlFile = new File(extractedPath.toString() + "/" + CORE_METADATA_FILE);
+
         try {
-            Document doc = openDocument(dbf, xmlFile);
+            Document doc = XmlFileOpener.openDocument(extractedPath.toString() + "/" + CORE_METADATA_FILE);
 
             model.setAuthor(parseAuthor(doc));
             model.setCreated(parseCreatedDate(doc));
             model.setModified(parseModifiedDate(doc));
 
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RoCrateProfileBaseException(FAILED_TO_PROCESS_EXCEL_METADATA);
         }
     }
 
@@ -56,13 +47,5 @@ public class ExcelCoreMetadataXmlParser {
         return createdDate;
     }
 
-    private static Document openDocument(DocumentBuilderFactory dbf, File xmlFile) throws ParserConfigurationException, SAXException, IOException {
-        dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-        dbf.setNamespaceAware(true);
 
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document doc = db.parse(xmlFile);
-        doc.getDocumentElement().normalize();
-        return doc;
-    }
 }

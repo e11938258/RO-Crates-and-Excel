@@ -28,7 +28,7 @@ public class Excel2RoCrateArgumentHandler implements ArgumentHandler {
     }
 
     @Override
-    public Convertor resolve(Map<String, Object> parameterMap) {
+    public Convertor handle(Map<String, Object> parameterMap) {
         guardParametersProcessed();
         return new Excel2RoCrateConvertor(parameterMap);
     }
