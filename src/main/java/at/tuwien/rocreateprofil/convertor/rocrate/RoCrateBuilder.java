@@ -1,4 +1,4 @@
-package at.tuwien.rocreateprofil.rocrate;
+package at.tuwien.rocreateprofil.convertor.rocrate;
 
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 
