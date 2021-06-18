@@ -32,11 +32,9 @@ public class ModelBuilderFromExcel {
         this.parsers = Arrays.asList(excelFileMetadataParser, excelContentsParser);
     }
 
-
-
     public RoCrateModel buildModel() {
         File excelFile = new File(excelFileLocation);
-        for (ExcelParser parser: parsers) {
+        for (ExcelParser parser : parsers) {
             model = parser.parseInto(excelFile, this.model);
         }
 

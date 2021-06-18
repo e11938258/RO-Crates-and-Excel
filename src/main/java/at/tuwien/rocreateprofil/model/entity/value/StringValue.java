@@ -1,5 +1,7 @@
 package at.tuwien.rocreateprofil.model.entity.value;
 
+import org.json.simple.JSONObject;
+
 public class StringValue implements Value {
     
     private final String value;
@@ -11,6 +13,12 @@ public class StringValue implements Value {
     @Override
     public Object getValue() {
         return value;
+    }
+
+    @Override
+    public void write(JSONObject cell) {
+        cell.put("value", value);
+        cell.put("type", "StringValue");
     }
 
 }

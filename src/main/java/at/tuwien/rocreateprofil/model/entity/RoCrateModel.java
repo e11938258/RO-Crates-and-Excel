@@ -42,6 +42,10 @@ public class RoCrateModel {
         return workbookName;
     }
 
+    public List<Dataset> getDatasets() {
+        return datasets;
+    }
+    
     public void setWorkbookName(String workbookName) {
         this.workbookName = workbookName;
     }

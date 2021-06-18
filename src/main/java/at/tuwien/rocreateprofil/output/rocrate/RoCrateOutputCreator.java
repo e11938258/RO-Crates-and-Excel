@@ -2,6 +2,7 @@ package at.tuwien.rocreateprofil.output.rocrate;
 
 import at.tuwien.rocreateprofil.exception.Error;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
+import at.tuwien.rocreateprofil.model.entity.Dataset;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import org.apache.commons.lang3.NotImplementedException;
 import org.json.simple.JSONObject;
@@ -18,17 +19,25 @@ public class RoCrateOutputCreator {
     // TODO: temporary, this should be taken as an argument
     private static final String RO_CRATE_ROOT = "output/ro-crate";
     private static final String RO_CRATE_METADATA_FILENAME = "ro-crate-metadata.json";
-
+    private static final String RO_CRATE_DATA_FOLDER = "/data";
 
     public static void createRoCrateFromModel(RoCrateModel model) {
         Path roCrateRoot = createRootDirectory();
         JSONObject roCrateMetadata = RoCrateMetadataMapper.mapFromModel(model);
         writeRoCrateMetadata(roCrateRoot, roCrateMetadata);
-        writeDataContentFiles();
+        writeDataContentFiles(model);
     }
 
-    private static void writeDataContentFiles() {
-        throw new NotImplementedException();
+    private static void writeDataContentFiles(RoCrateModel model) {
+        // Create folder with data
+        File dir = new File(RO_CRATE_ROOT + RO_CRATE_DATA_FOLDER);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        // Save each dataset
+        for (Dataset dataset : model.getDatasets()) {
+            dataset.writeToFile(RO_CRATE_ROOT + RO_CRATE_DATA_FOLDER);
+        }
     }
 
     private static void writeRoCrateMetadata(Path roCrateRoot, JSONObject roCrateMetadata) {

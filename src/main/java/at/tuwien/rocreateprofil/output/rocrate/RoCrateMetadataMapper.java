@@ -1,6 +1,7 @@
 package at.tuwien.rocreateprofil.output.rocrate;
 
 
+import at.tuwien.rocreateprofil.model.entity.Dataset;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
@@ -22,6 +23,11 @@ public class RoCrateMetadataMapper {
         JSONArray graphContent = new JSONArray();
         graphContent.add(buildRootEntity());
         graphContent.add(describeRootEntity(model));
+        graphContent.add(buildDatasetInfoEntity(model));
+        // For each dataset
+        for (Dataset dataset : model.getDatasets()) {
+            graphContent.add(buildDatasetEntity(dataset));
+        }
 
         return graphContent;
     }
@@ -66,5 +72,42 @@ public class RoCrateMetadataMapper {
 
     private static void insertRoCrateGraph(JSONObject roCrateMetadata, JSONArray graphContent) {
         roCrateMetadata.put(RoCrateSchema.GRAPH, graphContent);
+    }
+
+    private static JSONObject buildDatasetInfoEntity(RoCrateModel model) {
+        final JSONObject datasetInfoEntity = new JSONObject();
+        // ID
+        datasetInfoEntity.put(ID, ROOT_ENTITY_ABOUT_ID);
+        
+        // Types
+        final JSONArray typeContent = new JSONArray();
+        typeContent.add(DATASET);
+        datasetInfoEntity.put(TYPE, typeContent);
+        
+        // Has part
+        final JSONArray parts = new JSONArray();
+        for (Dataset dataset : model.getDatasets()) {
+            final JSONObject datasetId = new JSONObject();
+            datasetId.put(ID, dataset.getId());
+            parts.add(datasetId);
+        }
+        datasetInfoEntity.put(HAS_PART, parts);
+        
+        return datasetInfoEntity;
+    }
+    
+    private static JSONObject buildDatasetEntity(Dataset dataset) {
+        final JSONObject datasetInfoEntity = new JSONObject();
+        
+        // ID
+        datasetInfoEntity.put(ID, dataset.getId());
+        // Type
+        datasetInfoEntity.put(TYPE, FILE);
+        // Name
+        datasetInfoEntity.put(NAME, dataset.getName());
+        // Encoding format
+        datasetInfoEntity.put(ENCODING_FORMAT, dataset.getFormat());
+        
+        return datasetInfoEntity;
     }
 }

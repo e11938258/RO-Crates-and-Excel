@@ -1,9 +1,11 @@
 package at.tuwien.rocreateprofil.model.entity;
 
 import at.tuwien.rocreateprofil.model.entity.value.Value;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class Cell {
-    
+
     private final String id, functionName, columnId, rowId;
     private final Type type;
     private final Value value;
@@ -15,5 +17,21 @@ public class Cell {
         this.rowId = rowId;
         this.type = type;
         this.value = value;
+    }
+
+    public JSONObject getJSONObject() {
+        final JSONObject cell = new JSONObject();
+
+        // Put values to json cell
+        cell.put("id", id);
+        cell.put("columnId", columnId);
+        cell.put("rowId", rowId);
+        cell.put("type", type.toString());
+        value.write(cell);
+        if (functionName != null) {
+            cell.put("functionName", functionName);
+        }
+
+        return cell;
     }
 }
