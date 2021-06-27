@@ -2,9 +2,8 @@ package at.tuwien.rocreateprofil.output.rocrate;
 
 import at.tuwien.rocreateprofil.exception.Error;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
-import at.tuwien.rocreateprofil.model.entity.Dataset;
+import at.tuwien.rocreateprofil.model.entity.dataset.Dataset;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
-import org.apache.commons.lang3.NotImplementedException;
 import org.json.simple.JSONObject;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package at.tuwien.rocreateprofil.model.entity;
+package at.tuwien.rocreateprofil.model.entity.dataset;
 
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 import java.io.FileWriter;
@@ -10,22 +10,56 @@ import org.json.simple.JSONObject;
 
 public class Dataset {
 
-    // Static var
+    // Static var - file naming
     public static String filePatternName = "sheet_";
     private static int fileNumber = 1;
+    
     // Non-static var
+    private final List<Column> columns = new ArrayList<>();
+    private final List<Row> rows = new ArrayList<>();
     private final List<Cell> cells = new ArrayList<>();
-    private final String name, fileName, format = "application/json";
+    private final String name, fileName, format;
 
     public Dataset(String name) {
         this.name = name;
+        this.format = "application/json";
         this.fileName = filePatternName + (fileNumber++);
+    }
+    
+    public void addColumn(Column column) {
+        columns.add(column);
+    }
+    
+    public void addRow(Row row) {
+        rows.add(row);
     }
 
     public void addCell(Cell cell) {
         cells.add(cell);
     }
+    
+    public Column getColumn(String id) {
+        for (Column column : columns) {
+            if(column.getId().equals(id)) {
+                return column;
+            }
+        } 
+        return null;
+    }
+    
+    public Row getRow(String id) {
+        for (Row row : rows) {
+            if(row.getId().equals(id)) {
+                return row;
+            }
+        } 
+        return null;
+    }
 
+    public List<Column> getColumns() {
+        return columns;
+    }
+    
     public String getId() {
         return fileName;
     }

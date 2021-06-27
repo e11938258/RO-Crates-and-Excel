@@ -1,7 +1,7 @@
 package at.tuwien.rocreateprofil.output.rocrate;
 
 
-import at.tuwien.rocreateprofil.model.entity.Dataset;
+import at.tuwien.rocreateprofil.model.entity.dataset.Dataset;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import at.tuwien.rocreateprofil.output.rocrate.util.ContextEntityReferenceBuilder;
 import org.apache.commons.lang3.StringUtils;

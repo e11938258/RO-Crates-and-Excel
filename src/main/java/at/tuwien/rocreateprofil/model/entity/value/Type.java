@@ -1,4 +1,4 @@
-package at.tuwien.rocreateprofil.model.entity;
+package at.tuwien.rocreateprofil.model.entity.value;
 
 public enum Type {
     BooleanValue,
