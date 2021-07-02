@@ -15,7 +15,9 @@ public enum Error {
     RO_CRATE_CONTENT_WRITE_FAILED("Failed to write RO Crate content int '%s'! Check your permissions"),
     FAILED_TO_PROCESS_EXCEL_METADATA("Failed to process excel XML metadata. Ensure that the .xlsx file is not corrupted " +
             "and check if it is supported by the application."),
-    INVALID_LICENSE_URL("Provided license URL '%s' is not valid!");
+    INVALID_LICENSE_URL("Provided license URL '%s' is not valid!"),
+    CANNOT_MOVE_FILE_TO_RO_CRATE("Cannot move '%s' to the ro crate! Check permissions.");
+
 
     Error(String message) {
         this.message = message;

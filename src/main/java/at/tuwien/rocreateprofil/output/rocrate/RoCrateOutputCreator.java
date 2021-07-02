@@ -2,41 +2,98 @@ package at.tuwien.rocreateprofil.output.rocrate;
 
 import at.tuwien.rocreateprofil.exception.Error;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
-import at.tuwien.rocreateprofil.model.entity.dataset.Dataset;
-import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
+import at.tuwien.rocreateprofil.model.entity.rocrate.RoCrate;
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class RoCrateOutputCreator {
 
     // TODO: temporary, this should be taken as an argument
-    private static final String RO_CRATE_ROOT = "output/ro-crate";
+    private static final String RO_CRATE_ROOT = "./output/ro-crate";
     private static final String RO_CRATE_METADATA_FILENAME = "ro-crate-metadata.json";
-    private static final String RO_CRATE_DATA_FOLDER = "/data";
+    private static final String RO_CRATE_DATA_FOLDER = "data/";
 
-    public static void createRoCrateFromModel(RoCrateModel model) {
-        Path roCrateRoot = createRootDirectory();
-        JSONObject roCrateMetadata = RoCrateMetadataMapper.mapFromModel(model);
-        writeRoCrateMetadata(roCrateRoot, roCrateMetadata);
-        writeDataContentFiles(model);
+    public static void dumpRoCrate(RoCrate roCrate) {
+        Path roCrateRootPath = createRoCrateRoot(roCrate);
+        writeRoCrateMetadata(roCrateRootPath, roCrate.getRoCrateMetadata());
+        writeDataContentFiles(roCrate.getFiles(), roCrateRootPath.toString());
     }
 
-    private static void writeDataContentFiles(RoCrateModel model) {
+    private static Path createRoCrateRoot(RoCrate roCrate) {
+        String roCrateRoot = resolveRoCrateRoot(roCrate.getRoCrateLocation());
+        Path roCrateRootPath = createRootDirectory(roCrateRoot);
+        return roCrateRootPath;
+    }
+
+    private static void writeDataContentFiles(List<File> files, String roCrateRoot) {
         // Create folder with data
-        File dir = new File(RO_CRATE_ROOT + RO_CRATE_DATA_FOLDER);
+        String roCrateDataRoot = resolveDataRoot(roCrateRoot);
+        createFolder(roCrateDataRoot);
+        // Save each file
+        copyEachFileToRoCrate(roCrateDataRoot, files);
+    }
+
+    private static String resolveDataRoot(String roCrateRoot) {
+        roCrateRoot = ensureFolderEndsWithSlash(roCrateRoot);
+        String dataRoot = ensureFolderEndsWithSlash(roCrateRoot + RO_CRATE_DATA_FOLDER);
+        return dataRoot;
+    }
+
+    private static String ensureFolderEndsWithSlash(String folderName) {
+        if (!StringUtils.endsWith(folderName, "/")) {
+            folderName += "/";
+        }
+        return folderName;
+    }
+
+    private static void copyEachFileToRoCrate(String roCrateDataRoot, List<File> files) {
+        String currentFile = null;
+        try {
+            for (File file : files) {
+                currentFile = file.getName();
+                copyFile(roCrateDataRoot, file);
+            }
+        } catch (IOException e) {
+            throw new RoCrateProfileBaseException(Error.CANNOT_MOVE_FILE_TO_RO_CRATE, currentFile);
+        }
+    }
+
+    private static void copyFile(String roCrateDataRoot, File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        File targetFile = new File(roCrateDataRoot + file.getName());
+        if (!targetFile.exists()) {
+            targetFile.createNewFile();
+        }
+        BufferedWriter writer = new BufferedWriter(new FileWriter(targetFile.getAbsoluteFile()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            writer.write(line);
+        }
+        writer.flush();
+        writer.close();
+        reader.close();
+    }
+
+    private static String createFolder(String folderToCreate) {
+        File dir = new File(folderToCreate);
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        // Save each dataset
-        for (Dataset dataset : model.getDatasets()) {
-            dataset.writeToFile(RO_CRATE_ROOT + RO_CRATE_DATA_FOLDER);
+        return folderToCreate;
+    }
+
+    private static String resolveRoCrateRoot(String roCrateRoot) {
+        String targetFolder = roCrateRoot != null ? roCrateRoot : RO_CRATE_ROOT;
+        if (!StringUtils.endsWith(targetFolder, "/")) {
+            targetFolder += "/";
         }
+        return targetFolder;
     }
 
     private static void writeRoCrateMetadata(Path roCrateRoot, JSONObject roCrateMetadata) {
@@ -57,8 +114,8 @@ public class RoCrateOutputCreator {
         }
     }
 
-    private static Path createRootDirectory() {
-        Path rootDirectoryPath = Paths.get(RO_CRATE_ROOT);
+    private static Path createRootDirectory(String roCrateRoot) {
+        Path rootDirectoryPath = Paths.get(roCrateRoot);
         try {
             if (!rootDirectoryExists(rootDirectoryPath)) {
                 Files.createDirectory(rootDirectoryPath);

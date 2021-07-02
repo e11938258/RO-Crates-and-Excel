@@ -15,7 +15,7 @@ public class Excel2RoCrateConvertor implements Convertor {
 
     public static final String EXCEL_FILE = "EXCEL_FILE";
     public static final String LICENSE_URL = "LICENSE_URL";
-    private static final String OUTPUT_LOCATION = "/"; // TODO: @marwin would be nice to make this parametrized by args
+    private static final String OUTPUT_LOCATION = "./output/ro-crate"; // TODO: @marwin would be nice to make this parametrized by args
 
     private ExcelMetadataParser excelFileMetadataParser;
     private ExcelAppContentParser excelContentsParser;

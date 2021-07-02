@@ -2,6 +2,7 @@ package at.tuwien.rocreateprofil.model.entity.rocrate;
 
 import at.tuwien.rocreateprofil.model.entity.rocrate.meta.*;
 import at.tuwien.rocreateprofil.model.entity.rocrate.meta.util.RoCrateMetaUtil;
+import at.tuwien.rocreateprofil.output.rocrate.RoCrateOutputCreator;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import org.apache.commons.lang3.NotImplementedException;
 import org.json.simple.JSONArray;
@@ -64,9 +65,16 @@ public class RoCrate {
         return roCrateMetadata;
     }
 
+    public List<File> getFiles() {
+        return files;
+    }
+
+    public String getRoCrateLocation() {
+        return roCrateLocation;
+    }
+
     public void write() {
-        logger.info(roCrateMetadata.toString());
-        throw new NotImplementedException();
+        RoCrateOutputCreator.dumpRoCrate(this);
     }
 
     public static RoCrate load(String roCrateLocation) {
