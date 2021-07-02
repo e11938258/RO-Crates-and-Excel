@@ -39,7 +39,7 @@ public class RoCrateMetadataMapper {
         String applicationID = (String) application.get(ID);
         JSONObject applicationContextEntity = new JSONObject();
         applicationContextEntity.put(ID, applicationID);
-        applicationContextEntity.put(TYPE, APPLICATION_TYPE);
+        applicationContextEntity.put(TYPE, TYPE_APPLICATION);
         applicationContextEntity.put(NAME, model.getApplicationName());
         applicationContextEntity.put(VERSION, model.getApplicationVersion());
 
@@ -48,7 +48,7 @@ public class RoCrateMetadataMapper {
 
     private static JSONObject describeRootEntity(RoCrateModel model) {
         JSONObject aboutRootEntity = new JSONObject();
-        aboutRootEntity.put(ID, ROOT_ENTITY_ABOUT_ID);
+        aboutRootEntity.put(ID, ROOT_DATA_ENTITY_ID);
         aboutRootEntity.put(TYPE, TYPE_DATASET);
         aboutRootEntity.put(DATE_PUBLISHED, model.getModified().toString());
         // TODO: make sure those values are filled with something relevant (they are mandatory)
@@ -62,7 +62,7 @@ public class RoCrateMetadataMapper {
 
     private static JSONObject buildRootEntity() {
         JSONObject rootEntity = new JSONObject();
-        rootEntity.put(TYPE, ROOT_ENTITY_TYPE);
+        rootEntity.put(TYPE, TYPE_CREATIVE_WORK);
         rootEntity.put(ID, ROOT_ENTITY_ID);
         rootEntity.put(ABOUT, buildMandatoryAboutContent());
         rootEntity.put(CONFORMS_TO, buildMandatoryConformsToContent());
@@ -77,12 +77,12 @@ public class RoCrateMetadataMapper {
 
     private static JSONObject buildMandatoryAboutContent() {
         JSONObject aboutContent = new JSONObject();
-        aboutContent.put(ID, ROOT_ENTITY_ABOUT_ID);
+        aboutContent.put(ID, ROOT_DATA_ENTITY_ID);
         return aboutContent;
     }
 
     private static void insertRoCrateContext(JSONObject roCrateMetadata) {
-        roCrateMetadata.put(CONTEXT, CONTEXT_VALUE);
+        roCrateMetadata.put(CONTEXT, RO_CRATE_CONTEXT_VALUE);
     }
 
     private static void insertRoCrateGraph(JSONObject roCrateMetadata, JSONArray graphContent) {
@@ -92,7 +92,7 @@ public class RoCrateMetadataMapper {
     private static JSONObject buildDatasetInfoEntity(RoCrateModel model) {
         final JSONObject datasetInfoEntity = new JSONObject();
         // ID
-        datasetInfoEntity.put(ID, ROOT_ENTITY_ABOUT_ID);
+        datasetInfoEntity.put(ID, ROOT_DATA_ENTITY_ID);
         
         // Types
         final JSONArray typeContent = new JSONArray();
@@ -117,7 +117,7 @@ public class RoCrateMetadataMapper {
         // ID
         datasetInfoEntity.put(ID, dataset.getId());
         // Type
-        datasetInfoEntity.put(TYPE, FILE);
+        datasetInfoEntity.put(TYPE, TYPE_FILE);
         // Name
         datasetInfoEntity.put(NAME, dataset.getName());
         // Encoding format

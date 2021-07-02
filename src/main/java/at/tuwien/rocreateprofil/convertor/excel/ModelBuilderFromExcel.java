@@ -4,6 +4,7 @@ import at.tuwien.rocreateprofil.convertor.excel.parser.content.ExcelAppContentPa
 import at.tuwien.rocreateprofil.convertor.excel.parser.metadata.ExcelMetadataParser;
 import at.tuwien.rocreateprofil.convertor.excel.parser.ExcelParser;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
+import at.tuwien.rocreateprofil.model.entity.rocrate.RoCrate;
 
 import java.io.File;
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class ModelBuilderFromExcel {
     public RoCrateModel buildModel() {
         File excelFile = new File(excelFileLocation);
         for (ExcelParser parser : parsers) {
-            model = parser.parseInto(excelFile, this.model);
+//            model = parser.parseInto(excelFile, this.model);
         }
 
         return model;

@@ -14,6 +14,7 @@ public class Run {
             Convertor convertor = argumentHandler.handle(args);
             if (convertor != null) {
                 convertor.convert();
+                convertor.writeOutput();
             }
         } catch (RoCrateProfileBaseException e) {
             System.out.println("[ERROR]:" + e.getMessage());

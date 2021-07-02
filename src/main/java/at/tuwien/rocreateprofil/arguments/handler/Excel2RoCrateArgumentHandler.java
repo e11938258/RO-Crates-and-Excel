@@ -1,9 +1,14 @@
 package at.tuwien.rocreateprofil.arguments.handler;
 
+import at.tuwien.rocreateprofil.arguments.CommandLineArgument;
 import at.tuwien.rocreateprofil.convertor.Convertor;
 import at.tuwien.rocreateprofil.convertor.Excel2RoCrateConvertor;
-import at.tuwien.rocreateprofil.arguments.CommandLineArgument;
+import at.tuwien.rocreateprofil.exception.Error;
+import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Map;
 import java.util.Stack;
 
@@ -18,13 +23,24 @@ public class Excel2RoCrateArgumentHandler implements ArgumentHandler {
         this.guardEnoughParameters(this.getArgument(), remainingArgumentStack);
 
         consumeExcelFileLocationParameter(remainingArgumentStack.pop(), currentArgumentMap);
+        consumeLicenseParameter("https://makeSureToActuallyImplementLicenceInput.com", currentArgumentMap);
 
         this.additionalParametersProcessed = true;
         return currentArgumentMap;
     }
 
+    private void consumeLicenseParameter(String licenseUrlString, Map<String, Object> currentArgumentMap) {
+        try {
+            URL licenseUrl = new URL(licenseUrlString);
+            currentArgumentMap.put(Excel2RoCrateConvertor.LICENSE_URL, licenseUrl);
+        } catch (MalformedURLException e) {
+            throw new RoCrateProfileBaseException(Error.INVALID_LICENSE_URL, licenseUrlString);
+        }
+    }
+
     private void consumeExcelFileLocationParameter(String location, Map<String, Object> currentArgumentMap) {
-        currentArgumentMap.put(Excel2RoCrateConvertor.EXCEL_FILE_LOCATION, location);
+        File excelFile = new File(location);
+        currentArgumentMap.put(Excel2RoCrateConvertor.EXCEL_FILE, excelFile);
     }
 
     @Override

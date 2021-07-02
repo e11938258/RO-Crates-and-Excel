@@ -14,7 +14,8 @@ public enum Error {
     RO_CRATE_ROOT_DIRECTORY_FAILED("Failed to create root directory '%s' for RO Crate! Check your permissions"),
     RO_CRATE_CONTENT_WRITE_FAILED("Failed to write RO Crate content int '%s'! Check your permissions"),
     FAILED_TO_PROCESS_EXCEL_METADATA("Failed to process excel XML metadata. Ensure that the .xlsx file is not corrupted " +
-            "and check if it is supported by the application.");
+            "and check if it is supported by the application."),
+    INVALID_LICENSE_URL("Provided license URL '%s' is not valid!");
 
     Error(String message) {
         this.message = message;

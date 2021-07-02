@@ -14,7 +14,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import at.tuwien.rocreateprofil.model.entity.rocrate.meta.util.RoCrateMetaUtil;
 import org.apache.jena.ontology.OntModel;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class ExcelAppContentParser implements ExcelParser {
 
@@ -30,7 +34,8 @@ public class ExcelAppContentParser implements ExcelParser {
     }
     
     @Override
-    public RoCrateModel parseInto(File sourceFile, RoCrateModel model) {
+    public void parseInto(JSONArray roCrateMetadataGraph, File sourceFile) {
+        JSONObject fileDataEntity = RoCrateMetaUtil.retrieveEntityById(roCrateMetadataGraph, sourceFile.getName());
         try {
             // Load excel
             final ExcelBasedReader excelBasedReader = new ExcelBasedReader(sourceFile);
@@ -57,11 +62,11 @@ public class ExcelAppContentParser implements ExcelParser {
             
             // Add all dataset to model
             for (Dataset dataset : datasets.values()) {
-                model.addDataset(dataset);
+//                model.addDataset(dataset);
             }
         } catch (IOException ex) {
             Logger.getLogger(ExcelAppContentParser.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return model;
+//        return model;
     }
 }

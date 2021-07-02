@@ -1,11 +1,11 @@
 package at.tuwien.rocreateprofil.convertor.excel.parser;
 
-import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
+import org.json.simple.JSONArray;
 
 import java.io.File;
 
 public interface ExcelParser {
 
-    RoCrateModel parseInto(File sourceFile, RoCrateModel model);
+    void parseInto(JSONArray roCrateMetadataGraphArray, File sourceFile);
 
 }

@@ -19,7 +19,9 @@ public class TemporaryResourceStore {
     }
 
     public static synchronized void clearStore() {
-        temporaryResources.stream().forEach(deleteResource);
+        if (temporaryResources != null) {
+            temporaryResources.stream().forEach(deleteResource);
+        }
     }
 
     private static void ensureStoreInitialized() {
