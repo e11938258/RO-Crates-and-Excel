@@ -1,9 +1,6 @@
 package at.tuwien.rocreateprofil.model.entity.rocrate;
 
-import at.tuwien.rocreateprofil.model.entity.rocrate.meta.ContextBuilder;
-import at.tuwien.rocreateprofil.model.entity.rocrate.meta.FileDataEntityBuilder;
-import at.tuwien.rocreateprofil.model.entity.rocrate.meta.RootDataEntityBuilder;
-import at.tuwien.rocreateprofil.model.entity.rocrate.meta.RootEntityBuilder;
+import at.tuwien.rocreateprofil.model.entity.rocrate.meta.*;
 import at.tuwien.rocreateprofil.model.entity.rocrate.meta.util.RoCrateMetaUtil;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import org.apache.commons.lang3.NotImplementedException;
@@ -58,6 +55,9 @@ public class RoCrate {
         RoCrateMetaUtil.getRoCrateMetadataGraphArray(roCrateMetadata).add(RootEntityBuilder.build());
         // append empty root entity description
         RoCrateMetaUtil.getRoCrateMetadataGraphArray(roCrateMetadata).add(RootDataEntityBuilder.buildWithoutFiles(license));
+        // append license context entity
+        RoCrateMetaUtil.getRoCrateMetadataGraphArray(roCrateMetadata).add(LicenceContextEntityBuilder.build(license));
+
     }
 
     public JSONObject getRoCrateMetadata() {

@@ -1,7 +1,5 @@
 package at.tuwien.rocreateprofil.model.entity.rocrate.meta;
 
-import at.tuwien.rocreateprofil.model.entity.rocrate.meta.util.RoCrateMetaUtil;
-import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

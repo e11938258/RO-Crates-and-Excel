@@ -10,9 +10,9 @@ public class HelpArgumentHandler implements ArgumentHandler {
 
     private static final String HELP_MESSAGE = "Ro-crate <-> excel (xlsx only!) convertor:\n" +
             "Supported arguments:\n" +
-            "help                                       Prints this help message\n" +
-            "excel2rocrate <excel-file-location>        Converts provided excel file into a RO Crate object\n" +
-            "rocrate2excel <ro-crate-folder-location>   Reconstructs an excel file from the Ro Crate";
+            "help                                                    Prints this help message\n" +
+            "excel2rocrate <excel-file-location> <license-URL>       Converts provided excel file into a RO Crate object with provided license (mandatory)\n" +
+            "rocrate2excel <ro-crate-folder-location>                Reconstructs an excel file from the Ro Crate";
 
     public HelpArgumentHandler() {}
 

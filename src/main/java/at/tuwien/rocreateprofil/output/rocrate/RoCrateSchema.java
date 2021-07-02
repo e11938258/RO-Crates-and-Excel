@@ -32,6 +32,7 @@ public class RoCrateSchema {
     public static final String INSTRUMENT = "instrument";
     public static final String CREATE_ACTION_GENERIC_DESCRIPTION = "Process via which the file was created/last saved";
     public static final String RESULT = "result";
+    public static final String LICENSE_GENERIC_DESCRIPTION = "License as provided by the creator of the ro-crate";
 
 
     public static final String ID = "@id";

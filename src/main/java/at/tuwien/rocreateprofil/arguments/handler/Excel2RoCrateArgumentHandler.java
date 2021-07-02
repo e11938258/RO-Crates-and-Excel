@@ -23,7 +23,7 @@ public class Excel2RoCrateArgumentHandler implements ArgumentHandler {
         this.guardEnoughParameters(this.getArgument(), remainingArgumentStack);
 
         consumeExcelFileLocationParameter(remainingArgumentStack.pop(), currentArgumentMap);
-        consumeLicenseParameter("https://makeSureToActuallyImplementLicenceInput.com", currentArgumentMap);
+        consumeLicenseParameter(remainingArgumentStack.pop(), currentArgumentMap);
 
         this.additionalParametersProcessed = true;
         return currentArgumentMap;
