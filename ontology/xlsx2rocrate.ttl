@@ -1,213 +1,213 @@
-@prefix : <urn:webprotege:ontology:94ffce59-d4f6-45b5-8d95-97a07d56bf1f#> .
+@prefix : <https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <urn:webprotege:ontology:94ffce59-d4f6-45b5-8d95-97a07d56bf1f> .
+@base <urn:webprotege:ontology:c7a90c6c-4bbb-412b-b0f7-e1df12b99cd3> .
 
-<urn:webprotege:ontology:94ffce59-d4f6-45b5-8d95-97a07d56bf1f> rdf:type owl:Ontology .
+<urn:webprotege:ontology:c7a90c6c-4bbb-412b-b0f7-e1df12b99cd3> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://webprotege.stanford.edu/R9vh9IN4nWEs7itRjB633kX
-<http://webprotege.stanford.edu/R9vh9IN4nWEs7itRjB633kX> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> ;
-                                                         rdfs:range <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:label "hasColumn"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#hasColumn
+:hasColumn rdf:type owl:ObjectProperty ;
+                                                                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                rdfs:domain :ExcelSheet ;
+                                                                                rdfs:range :ExcelColumn ;
+                                                                                rdfs:label "hasColumn"@en .
 
 
-###  http://webprotege.stanford.edu/RBdgKPCJPSYPz8ivRe8uqW1
-<http://webprotege.stanford.edu/RBdgKPCJPSYPz8ivRe8uqW1> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RBpj9p0QherxkhkVFZyqySZ> ;
-                                                         rdfs:range <http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> ;
-                                                         rdfs:label "hasSheet"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#hasSheet
+:hasSheet rdf:type owl:ObjectProperty ;
+                                                                               rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                               rdfs:domain :ExcelWorkbook ;
+                                                                               rdfs:range :ExcelSheet ;
+                                                                               rdfs:label "hasSheet"@en .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://webprotege.stanford.edu/R7AQyxJRFXKS4kRJyFKJLyu
-<http://webprotege.stanford.edu/R7AQyxJRFXKS4kRJyFKJLyu> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:range xsd:integer ;
-                                                         rdfs:label "mode"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#average_length
+:average_length rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelColumn ;
+                                                                                     rdfs:label "average_length"@en .
 
 
-###  http://webprotege.stanford.edu/R7V9tgJIRQOMhgTZ0FStLKb
-<http://webprotege.stanford.edu/R7V9tgJIRQOMhgTZ0FStLKb> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:label "average_length"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#column_id
+:column_id rdf:type owl:DatatypeProperty ;
+                                                                                rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                rdfs:domain :ExcelColumn ;
+                                                                                rdfs:label "column_id"@en .
 
 
-###  http://webprotege.stanford.edu/R7nX0TQuGGX48yMn8iGTD3v
-<http://webprotege.stanford.edu/R7nX0TQuGGX48yMn8iGTD3v> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RBpj9p0QherxkhkVFZyqySZ> ;
-                                                         rdfs:label "encoding"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#column_name
+:column_name rdf:type owl:DatatypeProperty ;
+                                                                                  rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                  rdfs:domain :ExcelColumn ;
+                                                                                  rdfs:label "column_name"@en .
 
 
-###  http://webprotege.stanford.edu/R864viWGwylLqSzYHIdQWcI
-<http://webprotege.stanford.edu/R864viWGwylLqSzYHIdQWcI> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:label "column_name"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#encoding
+:encoding rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:subPropertyOf owl:topDataProperty ;
+                                                                               rdfs:domain :ExcelWorkbook ;
+                                                                               rdfs:label "encoding"@en .
 
 
-###  http://webprotege.stanford.edu/R8KVs0FNadeoqaujXiKmKyn
-<http://webprotege.stanford.edu/R8KVs0FNadeoqaujXiKmKyn> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:range xsd:double ;
-                                                         rdfs:label "mean"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#format_type
+:format_type rdf:type owl:DatatypeProperty ;
+                                                                                  rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                  rdfs:domain :ExcelColumn ;
+                                                                                  rdfs:label "format_type"@en .
 
 
-###  http://webprotege.stanford.edu/R8cRZQUZN2GQYnA3wgH1D3k
-<http://webprotege.stanford.edu/R8cRZQUZN2GQYnA3wgH1D3k> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> ,
-                                                                     <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:range xsd:boolean ;
-                                                         rdfs:label "missing_values"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#integer
+:integer rdf:type owl:DatatypeProperty ;
+                                                                              rdfs:subPropertyOf owl:topDataProperty ;
+                                                                              rdfs:domain :ExcelColumn ;
+                                                                              rdfs:range xsd:boolean ;
+                                                                              rdfs:label "integer"@en .
 
 
-###  http://webprotege.stanford.edu/R8j7wKpT2vFsdpuwH3XuFxk
-<http://webprotege.stanford.edu/R8j7wKpT2vFsdpuwH3XuFxk> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:range xsd:double ;
-                                                         rdfs:label "mode_in_percent"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#maximum
+:maximum rdf:type owl:DatatypeProperty ;
+                                                                              rdfs:subPropertyOf owl:topDataProperty ;
+                                                                              rdfs:domain :ExcelColumn ;
+                                                                              rdfs:range xsd:double ;
+                                                                              rdfs:label "maximum"@en .
 
 
-###  http://webprotege.stanford.edu/R8tqTm6drn8rjlufu46hmG7
-<http://webprotege.stanford.edu/R8tqTm6drn8rjlufu46hmG7> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:label "format_type"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#maximum_length
+:maximum_length rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelColumn ;
+                                                                                     rdfs:label "maximum_length"@en .
 
 
-###  http://webprotege.stanford.edu/RBIyQKqpm9gkfo4zaDwmAmk
-<http://webprotege.stanford.edu/RBIyQKqpm9gkfo4zaDwmAmk> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:range xsd:double ;
-                                                         rdfs:label "stdev"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mean
+:mean rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                                                           rdfs:domain :ExcelColumn ;
+                                                                           rdfs:range xsd:double ;
+                                                                           rdfs:label "mean"@en .
 
 
-###  http://webprotege.stanford.edu/RBbzl55dLyKFp4cttSSIoKy
-<http://webprotege.stanford.edu/RBbzl55dLyKFp4cttSSIoKy> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> ;
-                                                         rdfs:range xsd:integer ;
-                                                         rdfs:label "number_of_cols"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#median
+:median rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:subPropertyOf owl:topDataProperty ;
+                                                                             rdfs:domain :ExcelColumn ;
+                                                                             rdfs:range xsd:double ;
+                                                                             rdfs:label "median"@en .
 
 
-###  http://webprotege.stanford.edu/RCpMJsTB87CrV1n4U4t20qB
-<http://webprotege.stanford.edu/RCpMJsTB87CrV1n4U4t20qB> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:range xsd:double ;
-                                                         rdfs:label "median"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#minimum
+:minimum rdf:type owl:DatatypeProperty ;
+                                                                              rdfs:subPropertyOf owl:topDataProperty ;
+                                                                              rdfs:domain :ExcelColumn ;
+                                                                              rdfs:range xsd:double ;
+                                                                              rdfs:label "minimum"@en .
 
 
-###  http://webprotege.stanford.edu/RCyYm3tMtBk2IFCEZ5XTF9q
-<http://webprotege.stanford.edu/RCyYm3tMtBk2IFCEZ5XTF9q> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:label "maximum_length"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#minimum_length
+:minimum_length rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelColumn ;
+                                                                                     rdfs:label "minimum_length"@en .
 
 
-###  http://webprotege.stanford.edu/RDGjoG0UcMIO83uuxADuoZ6
-<http://webprotege.stanford.edu/RDGjoG0UcMIO83uuxADuoZ6> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:label "column_id"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#missing_values
+:missing_values rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelColumn ,
+                                                                                                 :ExcelSheet ;
+                                                                                     rdfs:range xsd:boolean ;
+                                                                                     rdfs:label "missing_values"@en .
 
 
-###  http://webprotege.stanford.edu/RDWgVxVYEJrFPsIRLOO4BV6
-<http://webprotege.stanford.edu/RDWgVxVYEJrFPsIRLOO4BV6> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:subPropertyOf owl:topDataProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                         rdfs:range xsd:double ;
-                                                         rdfs:label "maximum"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mode
+:mode rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                                                           rdfs:domain :ExcelColumn ;
+                                                                           rdfs:range xsd:integer ;
+                                                                           rdfs:label "mode"@en .
 
 
-###  http://webprotege.stanford.edu/RG8AhYNqLn5cGRpWfzWCXU
-<http://webprotege.stanford.edu/RG8AhYNqLn5cGRpWfzWCXU> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                        rdfs:range xsd:double ;
-                                                        rdfs:label "sum"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mode_in_percent
+:mode_in_percent rdf:type owl:DatatypeProperty ;
+                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                      rdfs:domain :ExcelColumn ;
+                                                                                      rdfs:range xsd:double ;
+                                                                                      rdfs:label "mode_in_percent"@en .
 
 
-###  http://webprotege.stanford.edu/RTgRtECQGJlQGF7qqlqpOM
-<http://webprotege.stanford.edu/RTgRtECQGJlQGF7qqlqpOM> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> ;
-                                                        rdfs:range xsd:integer ;
-                                                        rdfs:label "number_of_rows"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mode_key
+:mode_key rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:subPropertyOf owl:topDataProperty ;
+                                                                               rdfs:domain :ExcelColumn ;
+                                                                               rdfs:label "mode_key"@en .
 
 
-###  http://webprotege.stanford.edu/RUjR3DYOypCIBEioQJSJ7j
-<http://webprotege.stanford.edu/RUjR3DYOypCIBEioQJSJ7j> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                        rdfs:label "minimum_length"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#number_of_cols
+:number_of_cols rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelSheet ;
+                                                                                     rdfs:range xsd:integer ;
+                                                                                     rdfs:label "number_of_cols"@en .
 
 
-###  http://webprotege.stanford.edu/RXWjWp24pjTohapcP51dhY
-<http://webprotege.stanford.edu/RXWjWp24pjTohapcP51dhY> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> ;
-                                                        rdfs:label "sheet_name"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#number_of_rows
+:number_of_rows rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelSheet ;
+                                                                                     rdfs:range xsd:integer ;
+                                                                                     rdfs:label "number_of_rows"@en .
 
 
-###  http://webprotege.stanford.edu/Rav0ryhuCMf1DGDv9Gb7nX
-<http://webprotege.stanford.edu/Rav0ryhuCMf1DGDv9Gb7nX> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                        rdfs:range xsd:double ;
-                                                        rdfs:label "minimum"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#sheet_name
+:sheet_name rdf:type owl:DatatypeProperty ;
+                                                                                 rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                 rdfs:domain :ExcelSheet ;
+                                                                                 rdfs:label "sheet_name"@en .
 
 
-###  http://webprotege.stanford.edu/Rd8K8Mjr57gZBl7UVWZkG9
-<http://webprotege.stanford.edu/Rd8K8Mjr57gZBl7UVWZkG9> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                        rdfs:range xsd:boolean ;
-                                                        rdfs:label "integer"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#stdev
+:stdev rdf:type owl:DatatypeProperty ;
+                                                                            rdfs:subPropertyOf owl:topDataProperty ;
+                                                                            rdfs:domain :ExcelColumn ;
+                                                                            rdfs:range xsd:double ;
+                                                                            rdfs:label "stdev"@en .
 
 
-###  http://webprotege.stanford.edu/Rz0wu2BIHoQNymeWDXabbo
-<http://webprotege.stanford.edu/Rz0wu2BIHoQNymeWDXabbo> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> ;
-                                                        rdfs:label "mode_key"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#sum
+:sum rdf:type owl:DatatypeProperty ;
+                                                                          rdfs:subPropertyOf owl:topDataProperty ;
+                                                                          rdfs:domain :ExcelColumn ;
+                                                                          rdfs:range xsd:double ;
+                                                                          rdfs:label "sum"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs
-<http://webprotege.stanford.edu/R9a0oc4BG9W9zzsTe7DAsvs> rdf:type owl:Class ;
-                                                         rdfs:label "ExcelSheet"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelColumn
+:ExcelColumn rdf:type owl:Class .
 
 
-###  http://webprotege.stanford.edu/RBpj9p0QherxkhkVFZyqySZ
-<http://webprotege.stanford.edu/RBpj9p0QherxkhkVFZyqySZ> rdf:type owl:Class ;
-                                                         rdfs:label "ExcelWorkbook"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelSheet
+:ExcelSheet rdf:type owl:Class ;
+                                                                                 rdfs:label "ExcelSheet"@en .
 
 
-###  http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd
-<http://webprotege.stanford.edu/RKVVKRCeHZlZeZQX74SNd> rdf:type owl:Class ;
-                                                       rdfs:label "ExcelColumn"@en .
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelWorkbook
+:ExcelWorkbook rdf:type owl:Class ;
+                                                                                    rdfs:label "ExcelWorkbook"@en .
 
 
 ###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
