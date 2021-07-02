@@ -2,13 +2,13 @@ package at.tuwien.rocreateprofil.model.entity.dataset;
 
 import at.tuwien.rocreateprofil.model.entity.value.Type;
 import at.tuwien.rocreateprofil.model.entity.value.Value;
-import org.json.simple.JSONObject;
 
-public class Cell {
+public class Cell implements Comparable<Cell> {
 
-    private final String id, functionName;
     private final Column column;
     private final Row row;
+    
+    private final String id, functionName;
     private final Type type;
     private final Value value;
 
@@ -22,6 +22,10 @@ public class Cell {
         this.value = value;
     }
 
+    public String getId() {
+        return id;
+    }
+    
     public Type getType() {
         return type;
     }
@@ -29,20 +33,9 @@ public class Cell {
     public Value getValue() {
         return value;
     }
-    
-    public JSONObject getJSONObject() {
-        final JSONObject cell = new JSONObject();
 
-        // Put values to json cell
-        cell.put("id", id);
-        cell.put("columnId", column.getId());
-        cell.put("rowId", row.getId());
-        cell.put("type", type.toString());
-        value.write(cell);
-        if (functionName != null) {
-            cell.put("functionName", functionName);
-        }
-
-        return cell;
+    @Override
+    public int compareTo(Cell o) {
+        return Integer.parseInt(row.getId()) - Integer.parseInt(o.row.getId());
     }
 }

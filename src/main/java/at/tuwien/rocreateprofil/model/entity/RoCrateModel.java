@@ -1,7 +1,5 @@
 package at.tuwien.rocreateprofil.model.entity;
 
-import at.tuwien.rocreateprofil.model.entity.dataset.Dataset;
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,6 @@ public class RoCrateModel {
     private String applicationName;
     private String applicationVersion;
 
-    private List<Dataset> datasets = new ArrayList<>();
     private RoFile roFile;
 
     public String getAuthor() {
@@ -46,16 +43,8 @@ public class RoCrateModel {
         return workbookName;
     }
 
-    public List<Dataset> getDatasets() {
-        return datasets;
-    }
-    
     public void setWorkbookName(String workbookName) {
         this.workbookName = workbookName;
-    }
-
-    public void addDataset(Dataset dataset) {
-        datasets.add(dataset);
     }
 
     public RoFile getRoFile() {

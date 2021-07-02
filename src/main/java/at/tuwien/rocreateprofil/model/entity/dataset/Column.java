@@ -1,58 +1,123 @@
 package at.tuwien.rocreateprofil.model.entity.dataset;
 
-import at.tuwien.rocreateprofil.model.entity.profile.BooleanProfileColumn;
+import at.tuwien.rocreateprofil.model.entity.profile.CategoricalProfileColumn;
 import at.tuwien.rocreateprofil.model.entity.profile.ColumnProfile;
 import at.tuwien.rocreateprofil.model.entity.profile.NumericProfileColumn;
 import at.tuwien.rocreateprofil.model.entity.profile.StringProfileColumn;
 import at.tuwien.rocreateprofil.model.entity.value.Type;
+import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
+import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class Column {
 
-    ColumnProfile columnProfile;
-    final String Id;
-    final List<Cell> cells = new ArrayList<>();
+    private final Set<String> categories = new HashSet<>();
+    private final List<Cell> cells = new ArrayList<>();
+    private final int categoricalThreshold = 10;
+    private final String name, id;
+    private String headerName = null;
+    private ColumnProfile columnProfile;
+    private boolean missingValues = false;
 
-    public Column(String Id) {
-        this.Id = Id;
+    public Column(String excelId, String id) {
+        this.name = excelId;
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void addCell(Cell cell) {
         cells.add(cell);
     }
 
-    public void buildProfile() {
-        columnProfile = getType();
-        columnProfile.build(cells);
+    public void buildProfile(boolean header) {
+        if (cells.size() > 0) {
+            // Order cells by name
+            Collections.sort(cells);
+
+            // Missing values
+            Integer count = Integer.parseInt(cells.get(cells.size() - 1).getId().replace(name, ""))
+                    - Integer.parseInt(cells.get(0).getId().replace(name, ""));
+            if (cells.size() < count) {
+                missingValues = true;
+            }
+
+            // Get header
+            if (header) {
+                headerName = (String) cells.get(0).getValue().getValue();
+                cells.remove(0);
+            }
+
+            // Build column profile
+            columnProfile = getType();
+            columnProfile.build(cells);
+        }
     }
 
     private ColumnProfile getType() {
-        // Boolean < Numeric < String
-        int booleanCount = 0, numericCount = 0, stringCount = 0;
+        // Numeric < Categorical < String
+        int numericCount = 0, stringCount = 0;
 
         // Get a little stat
         for (Cell cell : cells) {
-            if (!cell.getType().equals(Type.BooleanValue)) {
-                booleanCount++;
-            } else if (!cell.getType().equals(Type.BooleanValue)) {
+            if (cell.getType().equals(Type.NumericValue)) {
                 numericCount++;
             } else {
                 stringCount++;
+                // Add string to hashset
+                categories.add((String) cell.getValue().getValue());
             }
         }
-        
-        // Decide what type of columns
-        if(stringCount > 0) {
-            return new StringProfileColumn();
-        } else if(numericCount > 1) {
+
+        // Decide what type of column
+        if (stringCount == 0 && numericCount > 0) {
             return new NumericProfileColumn();
+        } else if (categories.size() <= categoricalThreshold) {
+            return new CategoricalProfileColumn();
         } else {
-            return new BooleanProfileColumn(); 
+            return new StringProfileColumn();
         }
+    }
+
+    public boolean isMissingValues() {
+        return missingValues;
+    }
+
+    public void writeToFile(JSONObject object) {
+        // ID
+        object.put(RoCrateSchema.ID, id);
+
+        // Types
+        final JSONArray typesArr = new JSONArray();
+        typesArr.add(RoCrateSchema.DATA_CUBE_NAMESPACE + ":"
+                + RoCrateSchema.DATA_CUBE_DIMENSTION_PROPERTY);
+        typesArr.add(RoCrateSchema.CUSTOM_ONTOLOGY_NAMESPACE + ":"
+                + Xlsx2rocrateSchema.EXCEL_COLUMN);
+        object.put(RoCrateSchema.TYPE, typesArr);
+
+        // Column id
+        object.put(Xlsx2rocrateSchema.COLUMN_ID, name);
+
+        // Header name
+        if (headerName != null) {
+            object.put(Xlsx2rocrateSchema.COLUMN_NAME, headerName);
+        }
+
+        // Missing values
+        object.put(Xlsx2rocrateSchema.MISSING_VALUES, missingValues);
+        // Write column profile as well
+        columnProfile.writeToFile(object);
     }
 }

@@ -47,4 +47,9 @@ public class RoCrateSchema {
     public static final Object DATA_CUBE_NAMESPACE = "qb";
     public static final String CUSTOM_ONTOLOGY_CONTEXT = "https://githubraw.com/linkToTaggedTtlFileOfOntology#";
     public static final String CUSTOM_ONTOLOGY_NAMESPACE = "xlsx2rocrate";
+    
+    public static final String COMPONENTS = "components";
+    
+    public static final String DATA_CUBE_DATA_STRUCTURE_DEFINITION = "DataStructureDefinition";
+    public static final String DATA_CUBE_DIMENSTION_PROPERTY = "DimensionProperty";
 }

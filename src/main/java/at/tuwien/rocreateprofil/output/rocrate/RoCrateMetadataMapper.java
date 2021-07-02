@@ -1,7 +1,6 @@
 package at.tuwien.rocreateprofil.output.rocrate;
 
 
-import at.tuwien.rocreateprofil.model.entity.dataset.Dataset;
 import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import at.tuwien.rocreateprofil.output.rocrate.util.ContextEntityReferenceBuilder;
 import org.apache.commons.lang3.StringUtils;
@@ -27,10 +26,10 @@ public class RoCrateMetadataMapper {
         graphContent.add(rootEntityDescription);
         graphContent.add(buildApplicationContextEntity(model, (JSONObject) rootEntityDescription.get(APPLICATION)));
         graphContent.add(buildDatasetInfoEntity(model));
-        // For each dataset
-        for (Dataset dataset : model.getDatasets()) {
-            graphContent.add(buildDatasetEntity(dataset));
-        }
+//        // For each dataset
+//        for (Dataset dataset : model.getDatasets()) {
+//            graphContent.add(buildDatasetEntity(dataset));
+//        }
 
         return graphContent;
     }
@@ -101,28 +100,28 @@ public class RoCrateMetadataMapper {
 
         // Has part
         final JSONArray parts = new JSONArray();
-        for (Dataset dataset : model.getDatasets()) {
-            final JSONObject datasetId = new JSONObject();
-            datasetId.put(ID, dataset.getId());
-            parts.add(datasetId);
-        }
+//        for (Dataset dataset : model.getDatasets()) {
+//            final JSONObject datasetId = new JSONObject();
+//            datasetId.put(ID, dataset.getId());
+//            parts.add(datasetId);
+//        }
         datasetInfoEntity.put(HAS_PART, parts);
         
         return datasetInfoEntity;
     }
     
-    private static JSONObject buildDatasetEntity(Dataset dataset) {
-        final JSONObject datasetInfoEntity = new JSONObject();
-        
-        // ID
-        datasetInfoEntity.put(ID, dataset.getId());
-        // Type
-        datasetInfoEntity.put(TYPE, TYPE_FILE);
-        // Name
-        datasetInfoEntity.put(NAME, dataset.getName());
-        // Encoding format
-        datasetInfoEntity.put(ENCODING_FORMAT, dataset.getFormat());
-        
-        return datasetInfoEntity;
-    }
+//    private static JSONObject buildDatasetEntity(Dataset dataset) {
+//        final JSONObject datasetInfoEntity = new JSONObject();
+//        
+//        // ID
+//        datasetInfoEntity.put(ID, dataset.getId());
+//        // Type
+//        datasetInfoEntity.put(TYPE, TYPE_FILE);
+//        // Name
+//        datasetInfoEntity.put(NAME, dataset.getName());
+//        // Encoding format
+//        datasetInfoEntity.put(ENCODING_FORMAT, dataset.getFormat());
+//        
+//        return datasetInfoEntity;
+//    }
 }

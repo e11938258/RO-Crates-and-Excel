@@ -1,0 +1,381 @@
+{
+    "@graph": [{
+            "@type": "CreativeWork",
+            "about": {
+                "@id": ".\/"
+            },
+            "@id": "ro-crate-metadata.json",
+            "conformsTo": {
+                "@id": "https:\/\/w3id.org\/ro\/crate\/1.1"
+            }
+        },
+        {
+            "datePublished": "2021-07-02T22:06:11.691268100Z",
+            "license": {
+                "@id": "https:\/\/makesuretoactuallyimplementlicenceinput.com\/"
+            },
+            "@type": "Dataset",
+            "name": "name",
+            "description": "Ro crate describing a dataset contained in a single excel(xlsx) file. Provides information on dataset level, as well as on column level based on the column type",
+            "@id": ".\/"
+        },
+        {
+            "@type": "CreativeWork",
+            "description": "License as provided by the creator of the ro-crate",
+            "@id": "https:\/\/makesuretoactuallyimplementlicenceinput.com\/"
+        },
+        {
+            "dateCreated": "2015-06-05T18:19:34Z",
+            "@type": [
+                "File",
+                "xlsx2rocrate:ExcelWorkbook"
+            ],
+            "author": {
+                "@id": "#793d09e8-a419-4c1e-8681-c6b04b776f0f"
+            },
+            "dateModified": "2021-07-02T19:02:38Z",
+            "sheet": [{
+                    "@id": "#List1-7820fcbf-"
+                },
+                {
+                    "@id": "#List2-f01825ef-"
+                }
+            ],
+            "@id": "simple_test.xlsm",
+            "encoding": "windows-1250"
+        },
+        {
+            "@type": "Person",
+            "name": "Filip Zoubek",
+            "@id": "#793d09e8-a419-4c1e-8681-c6b04b776f0f"
+        },
+        {
+            "result": {
+                "@id": "simple_test.xlsm"
+            },
+            "@type": "CreateAction",
+            "description": "Process via which the file was created\/last saved",
+            "instrument": {
+                "@id": "#1de944df-04d4-4995-9429-8491b460f707"
+            },
+            "@id": "#95a60400-240b-440b-8eb9-a4bda3d7239e"
+        },
+        {
+            "@type": "SoftwareApplication",
+            "name": "Microsoft Excel",
+            "@id": "#1de944df-04d4-4995-9429-8491b460f707",
+            "version": "16.0300"
+        },
+        {
+            "missing_values": true,
+            "components": [{
+                    "@id": "#B-4e947b8b-"
+                },
+                {
+                    "@id": "#A-da88ac80-"
+                },
+                {
+                    "@id": "#D-1aabae47-"
+                },
+                {
+                    "@id": "#C-7eb0c9ec-"
+                }
+            ],
+            "@type": [
+                "qb:DataStructureDefinition",
+                "xlsx2rocrate:ExcelSheet"
+            ],
+            "number_of_rows": 25,
+            "number_of_cols": 4,
+            "@id": "#List1-7820fcbf-",
+            "sheet_name": "List1"
+        },
+        {
+            "missing_values": false,
+            "components": [{
+                    "@id": "#G-a3bfed1d-"
+                },
+                {
+                    "@id": "#D-2c546a07-"
+                },
+                {
+                    "@id": "#H-3eda8447-"
+                },
+                {
+                    "@id": "#A-9548e54b-"
+                },
+                {
+                    "@id": "#I-5edb9ab4-"
+                },
+                {
+                    "@id": "#E-03588011-"
+                },
+                {
+                    "@id": "#B-ae6a8c7f-"
+                },
+                {
+                    "@id": "#J-8a1938b2-"
+                },
+                {
+                    "@id": "#F-8022620d-"
+                },
+                {
+                    "@id": "#C-bfd035f9-"
+                }
+            ],
+            "@type": [
+                "qb:DataStructureDefinition",
+                "xlsx2rocrate:ExcelSheet"
+            ],
+            "number_of_rows": 33,
+            "number_of_cols": 10,
+            "@id": "#List2-f01825ef-",
+            "sheet_name": "List2"
+        },
+        {
+            "column_id": "B",
+            "missing_values": false,
+            "mode": 12,
+            "format_type": "categorical",
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "mode_key": "Category 1",
+            "column_name": "Column 2",
+            "@id": "#B-4e947b8b-",
+            "mode_in_percent": 50.0
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "Column 1",
+            "sum": 300.0,
+            "integer": true,
+            "column_id": "A",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 12.5,
+            "mean": 12.5,
+            "maximum": 24.0,
+            "@id": "#A-da88ac80-",
+            "minimum": 1.0,
+            "stdev": 6.855654600401044
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "Column 4",
+            "sum": 42.0,
+            "integer": true,
+            "column_id": "D",
+            "missing_values": true,
+            "format_type": "numeric",
+            "median": 2.0,
+            "mean": 2.4705882352941178,
+            "maximum": 7.0,
+            "@id": "#D-1aabae47-",
+            "minimum": 1.0,
+            "stdev": 1.4142135623730951
+        },
+        {
+            "column_id": "C",
+            "missing_values": false,
+            "format_type": "string",
+            "maximum_length": 9,
+            "average_length": 8.625,
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "Column 3",
+            "@id": "#C-7eb0c9ec-",
+            "minimum_length": 8
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "RH_2",
+            "sum": 1443.3183403015137,
+            "integer": false,
+            "column_id": "G",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 44.77499961853027,
+            "mean": 45.1036981344223,
+            "maximum": 47.223331451416016,
+            "@id": "#G-a3bfed1d-",
+            "minimum": 44.36000061035156,
+            "stdev": 0.0
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "T1",
+            "sum": 658.3699951171875,
+            "integer": false,
+            "column_id": "D",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 20.64833354949951,
+            "mean": 20.57406234741211,
+            "maximum": 21.53333282470703,
+            "@id": "#D-2c546a07-",
+            "minimum": 19.790000915527344,
+            "stdev": 0.0
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "T3",
+            "sum": 642.0133399963379,
+            "integer": false,
+            "column_id": "H",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 20.133333206176758,
+            "mean": 20.06291687488556,
+            "maximum": 20.426666259765625,
+            "@id": "#H-3eda8447-",
+            "minimum": 19.729999542236328,
+            "stdev": 0.0
+        },
+        {
+            "column_id": "A",
+            "missing_values": false,
+            "format_type": "string",
+            "maximum_length": 19,
+            "average_length": 19.0,
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "date",
+            "@id": "#A-9548e54b-",
+            "minimum_length": 19
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "RH_3",
+            "sum": 1474.464183807373,
+            "integer": false,
+            "column_id": "I",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 46.03000068664551,
+            "mean": 46.07700574398041,
+            "maximum": 48.529998779296875,
+            "@id": "#I-5edb9ab4-",
+            "minimum": 44.72999954223633,
+            "stdev": 1.0
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "RH_1",
+            "sum": 1526.5475044250488,
+            "integer": false,
+            "column_id": "E",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 46.31666564941406,
+            "mean": 47.704609513282776,
+            "maximum": 55.893333435058594,
+            "@id": "#E-03588011-",
+            "minimum": 44.96666717529297,
+            "stdev": 2.8284271247461903
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "Appliances",
+            "sum": 4310.0,
+            "integer": true,
+            "column_id": "B",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 100.0,
+            "mean": 134.6875,
+            "maximum": 580.0,
+            "@id": "#B-ae6a8c7f-",
+            "minimum": 50.0,
+            "stdev": 119.91663771137014
+        },
+        {
+            "column_id": "J",
+            "missing_values": false,
+            "mode": 6,
+            "format_type": "categorical",
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "mode_key": "A",
+            "column_name": "Result",
+            "@id": "#J-8a1938b2-",
+            "mode_in_percent": 18.75
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "T2",
+            "sum": 636.9800109863281,
+            "integer": false,
+            "column_id": "F",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 20.09999942779541,
+            "mean": 19.905625343322754,
+            "maximum": 20.790000915527344,
+            "@id": "#F-8022620d-",
+            "minimum": 19.200000762939453,
+            "stdev": 0.0
+        },
+        {
+            "@type": [
+                "qb:DimensionProperty",
+                "xlsx2rocrate:ExcelColumn"
+            ],
+            "column_name": "lights",
+            "sum": 1060.0,
+            "integer": true,
+            "column_id": "C",
+            "missing_values": false,
+            "format_type": "numeric",
+            "median": 30.0,
+            "mean": 33.125,
+            "maximum": 70.0,
+            "@id": "#C-bfd035f9-",
+            "minimum": 10.0,
+            "stdev": 14.0
+        }
+    ],
+    "@context": [
+        "https:\/\/w3id.org\/ro\/crate\/1.1\/context",
+        {
+            "qb": "http:\/\/purl.org\/linked-data\/cube#"
+        },
+        {
+            "xlsx2rocrate": "https:\/\/githubraw.com\/linkToTaggedTtlFileOfOntology#"
+        }
+    ]
+}
