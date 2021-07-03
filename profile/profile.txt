@@ -1,0 +1,25 @@
+ExcelWorkbook MUST
+    encoding MAY
+ExcelSheet MUST
+    number_of_rows SHOULD
+    number_of_cols SHOULD
+    sheet_name SHOULD
+    missing_values MAY
+ExcelColumn MUST
+    format_type MUST
+    column_id SHOULD
+    missing_values MAY
+    column_name SHOULD
+    mode MAY
+    mode_key MAY
+    mode_in_percent MAY
+    sum MAY
+    integer MAY
+    median MAY
+    mean MAY
+    maximum MAY
+    minimum MAY
+    stdev MAY
+    maximum_length MAY
+    average_length MAY
+    minimum_length MAY

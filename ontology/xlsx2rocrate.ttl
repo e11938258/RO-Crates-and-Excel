@@ -198,8 +198,9 @@
 #################################################################
 
 ###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelColumn
-:ExcelColumn rdf:type owl:Class .
-
+:ExcelColumn rdf:type owl:Class ;
+                                                                                 rdfs:label "ExcelColumn"@en .
+                                                                                 
 
 ###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelSheet
 :ExcelSheet rdf:type owl:Class ;

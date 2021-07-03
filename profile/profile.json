@@ -1,0 +1,62 @@
+{
+    "metadata": {
+        "name": "RO-Create Profile",
+        "version": 1.0
+    },
+    "items": {
+        "Collection": {
+            "metadata": {
+                "about": "Collection.",
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "additionalType",
+                "label": "Additional Type"
+            }]
+        },
+        "Item": {
+            "metadata": {
+                "about": "Item.",
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "additionalType",
+                "label": "Additional Type"
+            }]
+        }
+    },
+    "typeDefinitions": {
+        "License": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                    "property": "name",
+                    "@type": "Select",
+                    "required": true,
+                    "multiple": false,
+                    "group": "important",
+                    "options": [
+                        ""
+                    ]
+                },
+                {
+                    "property": "description",
+                    "@type": "TextArea",
+                    "multiple": false
+                }
+            ]
+        },
+        "Language": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            }
+        }
+    },
+    "enabledCoreTypes": [
+        ""
+    ],
+    "dataPacks": [
+        ""
+    ]
+}
