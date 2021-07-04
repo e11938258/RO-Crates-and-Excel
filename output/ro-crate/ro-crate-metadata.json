@@ -10,7 +10,7 @@
             }
         },
         {
-            "datePublished": "2021-07-04T17:02:34.855225900Z",
+            "datePublished": "2021-07-04T19:59:55.625861100Z",
             "license": {
                 "@id": "https:\/\/makesuretoactuallyimplementlicenceinput.com\/"
             },
@@ -30,10 +30,10 @@
         {
             "dateCreated": "2016-08-14T15:33:50Z",
             "hasSheet": [{
-                    "@id": "#Description-06f5e851-"
+                    "@id": "#Description-cd1c8348-"
                 },
                 {
-                    "@id": "#Data-be28c7a6-"
+                    "@id": "#Data-8a7c75cd-"
                 }
             ],
             "@type": [
@@ -41,7 +41,7 @@
                 "xlsx2rocrate:ExcelWorkbook"
             ],
             "author": {
-                "@id": "#602c46e6-ad90-4fc8-a779-1f64af5449aa"
+                "@id": "#d1400713-c1ea-496f-9409-a1d566fd2997"
             },
             "dateModified": "2021-07-04T02:12:48Z",
             "@id": "c_bank.xlsx",
@@ -50,7 +50,7 @@
         {
             "@type": "Person",
             "name": "???????????? Microsoft Office",
-            "@id": "#602c46e6-ad90-4fc8-a779-1f64af5449aa"
+            "@id": "#d1400713-c1ea-496f-9409-a1d566fd2997"
         },
         {
             "result": {
@@ -59,20 +59,20 @@
             "@type": "CreateAction",
             "description": "Process via which the file was created\/last saved",
             "instrument": {
-                "@id": "#785da805-0d1b-4c79-bce1-7950f45f25bb"
+                "@id": "#764b2efa-51c7-49fa-8bd8-5c9139491dee"
             },
-            "@id": "#ae9c7b2b-3a34-4ba5-8473-88c3bf04bb5e"
+            "@id": "#5677dff6-be4d-4f4b-bd9e-ec01f2779b68"
         },
         {
             "@type": "SoftwareApplication",
             "name": "LibreOffice\/6.4.7.2$Linux_X86_64 LibreOffice_project\/40$Build-2",
-            "@id": "#785da805-0d1b-4c79-bce1-7950f45f25bb",
+            "@id": "#764b2efa-51c7-49fa-8bd8-5c9139491dee",
             "version": null
         },
         {
             "missing_values": false,
             "components": [{
-                "@id": "#A-6865d69a-"
+                "@id": "#A-719e60f3-"
             }],
             "@type": [
                 "qb:DataStructureDefinition",
@@ -80,70 +80,70 @@
             ],
             "number_of_rows": 12,
             "number_of_cols": 1,
-            "@id": "#Description-06f5e851-",
+            "@id": "#Description-cd1c8348-",
             "sheet_name": "Description"
         },
         {
             "missing_values": false,
             "components": [{
-                    "@id": "#Q-66e77a97-"
+                    "@id": "#Q-2672af58-"
                 },
                 {
-                    "@id": "#P-70b59d34-"
+                    "@id": "#P-e082e988-"
                 },
                 {
-                    "@id": "#A-9f4bf0e6-"
+                    "@id": "#A-4c2fb6c8-"
                 },
                 {
-                    "@id": "#F-dcf67660-"
+                    "@id": "#F-cbc22b06-"
                 },
                 {
-                    "@id": "#M-b3a096b5-"
+                    "@id": "#M-867ff2d6-"
                 },
                 {
-                    "@id": "#L-aa90af37-"
+                    "@id": "#L-e6c2b318-"
                 },
                 {
-                    "@id": "#S-d77dd1a5-"
+                    "@id": "#S-7de39b1f-"
                 },
                 {
-                    "@id": "#D-6729dfa1-"
+                    "@id": "#D-f5d9b5fb-"
                 },
                 {
-                    "@id": "#I-ffd3f2b3-"
+                    "@id": "#I-0814d89a-"
                 },
                 {
-                    "@id": "#H-1c621e99-"
+                    "@id": "#H-bd21f2b9-"
                 },
                 {
-                    "@id": "#O-af951f50-"
+                    "@id": "#O-4c369eda-"
                 },
                 {
-                    "@id": "#R-0939ba0e-"
+                    "@id": "#R-2e21b39e-"
                 },
                 {
-                    "@id": "#E-bc876a6d-"
+                    "@id": "#E-c1eccc62-"
                 },
                 {
-                    "@id": "#C-62c790ca-"
+                    "@id": "#C-064dc1ce-"
                 },
                 {
-                    "@id": "#T-87ba4653-"
+                    "@id": "#T-ec6ef760-"
                 },
                 {
-                    "@id": "#K-03216a7c-"
+                    "@id": "#K-5ae80edf-"
                 },
                 {
-                    "@id": "#N-d4f997ac-"
+                    "@id": "#N-5ea17eb8-"
                 },
                 {
-                    "@id": "#B-ff03c625-"
+                    "@id": "#B-3a8372e9-"
                 },
                 {
-                    "@id": "#G-71221821-"
+                    "@id": "#G-3953a02f-"
                 },
                 {
-                    "@id": "#J-e451d5a7-"
+                    "@id": "#J-425aa8aa-"
                 }
             ],
             "@type": [
@@ -152,7 +152,7 @@
             ],
             "number_of_rows": 162,
             "number_of_cols": 20,
-            "@id": "#Data-be28c7a6-",
+            "@id": "#Data-8a7c75cd-",
             "sheet_name": "Data"
         },
         {
@@ -168,7 +168,7 @@
             ],
             "stdev_length": 66.65583245298194,
             "column_name": "Description",
-            "@id": "#A-6865d69a-",
+            "@id": "#A-719e60f3-",
             "missing_values_proportion": 0.0,
             "minimum_length": 5
         },
@@ -186,7 +186,7 @@
             "median": 1523.8699951171875,
             "mean": 1517.4902502972147,
             "maximum": 1625.6700439453125,
-            "@id": "#Q-66e77a97-",
+            "@id": "#Q-2672af58-",
             "minimum": 1410.0400390625,
             "missing_values_proportion": 0.0,
             "stdev": 51.81698563212646
@@ -205,7 +205,7 @@
             "median": 29.84000015258789,
             "mean": 30.030186351041618,
             "maximum": 35.060001373291016,
-            "@id": "#P-70b59d34-",
+            "@id": "#P-e082e988-",
             "minimum": 27.110000610351562,
             "missing_values_proportion": 0.0,
             "stdev": 1.4142135623730951
@@ -224,7 +224,7 @@
             "median": 41034.0,
             "mean": 41034.64596273292,
             "maximum": 41150.0,
-            "@id": "#A-9f4bf0e6-",
+            "@id": "#A-4c2fb6c8-",
             "minimum": 40919.0,
             "missing_values_proportion": 0.0,
             "stdev": 67.65352910233139
@@ -243,7 +243,7 @@
             "median": 39.73929977416992,
             "mean": 38.99948932813562,
             "maximum": 43.564998626708984,
-            "@id": "#F-dcf67660-",
+            "@id": "#F-cbc22b06-",
             "minimum": 34.92720031738281,
             "missing_values_proportion": 0.0,
             "stdev": 2.0
@@ -262,7 +262,7 @@
             "median": 58.1328010559082,
             "mean": 58.521240281762545,
             "maximum": 62.47119903564453,
-            "@id": "#M-b3a096b5-",
+            "@id": "#M-867ff2d6-",
             "minimum": 55.0171012878418,
             "missing_values_proportion": 0.0,
             "stdev": 1.4142135623730951
@@ -281,7 +281,7 @@
             "median": 100.0,
             "mean": 100.0,
             "maximum": 100.0,
-            "@id": "#L-aa90af37-",
+            "@id": "#L-e6c2b318-",
             "minimum": 100.0,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -307,7 +307,7 @@
             ],
             "mode_key": "463 810",
             "column_name": "foreign_exchange_reserves",
-            "@id": "#S-d77dd1a5-",
+            "@id": "#S-7de39b1f-",
             "category": [
                 "465 664",
                 "467 992",
@@ -335,7 +335,7 @@
             "median": 31.158199310302734,
             "mean": 31.0004490799045,
             "maximum": 34.03950119018555,
-            "@id": "#D-6729dfa1-",
+            "@id": "#D-f5d9b5fb-",
             "minimum": 28.946800231933594,
             "missing_values_proportion": 0.0,
             "stdev": 1.0
@@ -354,7 +354,7 @@
             "median": 49.25189971923828,
             "mean": 48.93988141361971,
             "maximum": 53.4656982421875,
-            "@id": "#I-ffd3f2b3-",
+            "@id": "#I-0814d89a-",
             "minimum": 45.852699279785156,
             "missing_values_proportion": 0.0,
             "stdev": 1.7320508075688772
@@ -373,7 +373,7 @@
             "median": 10.0,
             "mean": 10.0,
             "maximum": 10.0,
-            "@id": "#H-1c621e99-",
+            "@id": "#H-bd21f2b9-",
             "minimum": 10.0,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -392,7 +392,7 @@
             "median": 1652.81005859375,
             "mean": 1632.2396247816382,
             "maximum": 1757.5999755859375,
-            "@id": "#O-af951f50-",
+            "@id": "#O-4c369eda-",
             "minimum": 1520.219970703125,
             "missing_values_proportion": 0.0,
             "stdev": 55.20869496736904
@@ -411,7 +411,7 @@
             "median": 631.8200073242188,
             "mean": 633.5688821543818,
             "maximum": 690.25,
-            "@id": "#R-0939ba0e-",
+            "@id": "#R-2e21b39e-",
             "minimum": 575.0700073242188,
             "missing_values_proportion": 0.0,
             "stdev": 29.068883707497267
@@ -430,7 +430,7 @@
             "median": 100.0,
             "mean": 100.0,
             "maximum": 100.0,
-            "@id": "#E-bc876a6d-",
+            "@id": "#E-c1eccc62-",
             "minimum": 100.0,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -449,7 +449,7 @@
             "median": 39.535301208496094,
             "mean": 39.66538077407742,
             "maximum": 42.24639892578125,
-            "@id": "#C-62c790ca-",
+            "@id": "#C-064dc1ce-",
             "minimum": 38.41170120239258,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -475,7 +475,7 @@
             ],
             "mode_key": "50 168",
             "column_name": "monetary_gold",
-            "@id": "#T-87ba4653-",
+            "@id": "#T-ec6ef760-",
             "category": [
                 "47 827",
                 "48 841",
@@ -503,7 +503,7 @@
             "median": 16.080699920654297,
             "mean": 16.289309288404002,
             "maximum": 17.891399383544922,
-            "@id": "#K-03216a7c-",
+            "@id": "#K-5ae80edf-",
             "minimum": 15.009499549865723,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -521,7 +521,7 @@
             ],
             "stdev_length": 0.0,
             "column_name": "INR_356",
-            "@id": "#N-d4f997ac-",
+            "@id": "#N-5ea17eb8-",
             "missing_values_proportion": 0.0,
             "minimum_length": 6
         },
@@ -539,7 +539,7 @@
             "median": 35.050498962402344,
             "mean": 34.89966955244171,
             "maximum": 37.732601165771484,
-            "@id": "#B-ff03c625-",
+            "@id": "#B-3a8372e9-",
             "minimum": 33.30270004272461,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -557,7 +557,7 @@
             ],
             "stdev_length": 0.0,
             "column_name": "JPY_392",
-            "@id": "#G-71221821-",
+            "@id": "#G-3953a02f-",
             "missing_values_proportion": 0.0,
             "minimum_length": 7
         },
@@ -574,7 +574,7 @@
             ],
             "stdev_length": 0.0,
             "column_name": "CNY_156",
-            "@id": "#J-e451d5a7-",
+            "@id": "#J-425aa8aa-",
             "missing_values_proportion": 0.0,
             "minimum_length": 5
         }

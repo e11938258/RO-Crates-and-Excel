@@ -1,5 +1,7 @@
-# How to run
+# Example 2
 Example where we convert RO-crate to excel
-The output folder will be output/
 
+# How to run
+```Bash
 java -jar target/ro-crate-excel-profile-1.0-SNAPSHOT.jar rocrate2excel examples/example_2/input/
+```
