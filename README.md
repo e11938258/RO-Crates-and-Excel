@@ -75,7 +75,7 @@ Each of the columns also contains the information whether it contains missing va
 
 The main usage of the application is to craete the RO-crate by parsing the metadata, sheets and columns from the selected excel and tries to build the model. This is done in 2 parts - first the xlsx file is unzipped and *docProps/app.xml* and *docProps/core.xml* are used to extract the author, creation/modification dates and the application information (name and version) respectively. Secondly the excel file is transformed into rdf triples using the excel ontology (https://github.com/allNormal/SpreadsheetTransformation) and then the aggregate information is built from that. Afterwards the data is converted into JSON-LD entities and written into the RO-crate metadata (ro-crate-metadata.json). Finally the original file is copied over to the *data/* folder as required by the RO-crate specification.
 
-The other flow is to generate excel files based on the RO-crate metadata to check how the data is described. This is done by reading the mandatory properties of the sheets and columns and generating valid values given the restrictions defined by the properties. As we do not store the exact distribution information for the string and numeric columns normal distribution with the provided mean (mean and average_length respectively) and standard deviation (stdev and stdev_length respectively) is used. For the categorical columns we make use of the proportions to generate the same distribution of each factor. However, due to the library used (http://poi.apache.org/download.html#POI-5.0.0) only 256 columns are supported in the generation (this is not a limit for the RO-creation). The generation is repeated for each sheet.
+The other flow is to generate excel files based on the RO-crate metadata to check how the data is described. This is done by reading the mandatory properties of the sheets and columns and generating valid values given the restrictions defined by the properties. As we do not store the exact distribution information for the string and numeric columns normal distribution with the provided mean (mean and average_length respectively) and standard deviation (stdev and stdev_length respectively) is used. For the categorical columns we make use of the proportions to generate the same distribution of each factor. However, due to the library used (http://poi.apache.org/download.html#POI-5.0.0) only 256 columns are supported in the generation (this is not a limit for the RO-creation). The generation is repeated for each sheet given the original sheets number of observations (rows). 
 
 Both the RO-crate and the excel are created in the *output/* directory relative to the execution directory. The RO-create root will be the *output/ro-crate* directory and the generated excel will be call the same as the original file.
 
@@ -108,6 +108,10 @@ mvn install:install-file -Dfile=./external/SpreadsheetTransformation-0.0.1.jar -
 
 We also provide two examples: one for excel2rocrate direction and one for rocrate2excel. You can find them in the folder "./examples".
 
+## Evaluation of generated excel files
+
+First of all the excel files describe the dataset on the column level somewhat reliably, albeit only normal distribution is used. There are obvious shortcomings such as no formatting of the cells and no function preservation mapping cell relationships. Those are not contained in the profile on purpose as they are not necessary for the description of the dataset (even though the formulas could provide insights but are hard to standardise in terms of feature connections inside a query and thus not very machine actionable). However, there are other column relationships that could be interesting for data synthesis that would capture the relationships in a bayesian network (e.g. as done in https://github.com/DataResponsibly/DataSynthesizer). However, this approach does not scale very well with high number of columns.
+
 ## Possible Extensions & shortcomings
 
 * We just implemented parser for numeric, categorical and string values in the cell. Other column types such as date could be added.
@@ -118,3 +122,4 @@ We also provide two examples: one for excel2rocrate direction and one for rocrat
 * We only provide global static threshold for a column to be resolved as a categorical column - column specific threshold could be added or explicit categorical column list could be supported
 * Additional information about the distribution of the data inside the columns could be added to support more complex queries (though some of those can be done with the mode_in_percent).
 * Missing value handling could be extended with specifieble missing value string (e.g. "Nan", "."...) 
+* For better dataset description additional column relationship properties could be added as described in "Evaluation of generated excel files"
