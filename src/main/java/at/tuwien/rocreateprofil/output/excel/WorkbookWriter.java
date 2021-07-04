@@ -1,6 +1,6 @@
 package at.tuwien.rocreateprofil.output.excel;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,7 +9,7 @@ import java.io.OutputStream;
 
 public class WorkbookWriter {
 
-    public static void write(HSSFWorkbook workbook, String filename) {
+    public static void write(XSSFWorkbook workbook, String filename) {
         OutputStream fileOut = null;
         try {
             fileOut = new FileOutputStream("output/" + filename);

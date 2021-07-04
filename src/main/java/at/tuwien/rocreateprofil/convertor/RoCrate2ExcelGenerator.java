@@ -9,6 +9,7 @@ import at.tuwien.rocreateprofil.output.excel.WorkbookWriter;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -22,7 +23,7 @@ public class RoCrate2ExcelGenerator implements Convertor {
     private String roCrateRoot;
 
     private RoCrate roCrate;
-    private HSSFWorkbook workbook;
+    private XSSFWorkbook workbook;
     private String outputFileName;
 
     public RoCrate2ExcelGenerator(Map<String, Object> parameterMap) {
@@ -42,7 +43,7 @@ public class RoCrate2ExcelGenerator implements Convertor {
         JSONArray excelFiles = (JSONArray)rootDataEntity.get(RoCrateSchema.HAS_PART);
         Iterator fileIterator = excelFiles.iterator();
 
-        workbook = new HSSFWorkbook();
+        workbook = new XSSFWorkbook();
         while (fileIterator.hasNext()) {
             JSONObject fileReference = (JSONObject) fileIterator.next();
             String fileDataEntityId = (String) fileReference.get(RoCrateSchema.ID);

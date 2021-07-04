@@ -2,31 +2,31 @@ package at.tuwien.rocreateprofil.output.excel;
 
 import at.tuwien.rocreateprofil.model.entity.dataset.Column;
 import at.tuwien.rocreateprofil.model.entity.dataset.Sheet;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class SheetInserter {
 
-    public static void insertWithGeneratedValues(Sheet sheet, HSSFWorkbook workbook) {
-        HSSFSheet insertedSheet = workbook.createSheet(sheet.getName());
+    public static void insertWithGeneratedValues(Sheet sheet, XSSFWorkbook workbook) {
+        XSSFSheet insertedSheet = workbook.createSheet(sheet.getName());
         // insert rows
         insertHeader(insertedSheet, sheet);
         insertRowsWithGeneratedValues(sheet, insertedSheet);
     }
 
-    private static void insertHeader(HSSFSheet insertedSheet, Sheet sheet) {
-        HSSFRow headerRow = insertedSheet.createRow(0);
+    private static void insertHeader(XSSFSheet insertedSheet, Sheet sheet) {
+        XSSFRow headerRow = insertedSheet.createRow(0);
         for (Column column : sheet.getColumns()) {
             int columnIndex = mapColumnLetterToNumber(column.getName());
             headerRow.createCell(columnIndex).setCellValue(column.getHeaderName());
         }
     }
 
-    private static void insertRowsWithGeneratedValues(Sheet sheet, HSSFSheet insertedSheet) {
+    private static void insertRowsWithGeneratedValues(Sheet sheet, XSSFSheet insertedSheet) {
         int rowsInserted = 1;
         while (rowsInserted <= sheet.getNumberOfRows()) {
-            HSSFRow insertedRow = insertedSheet.createRow(rowsInserted);
+            XSSFRow insertedRow = insertedSheet.createRow(rowsInserted);
             for (Column column : sheet.getColumns()) {
                 int columnIndex = mapColumnLetterToNumber(column.getName());
                 String value = column.generateValidValueForColumn();
