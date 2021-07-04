@@ -10,7 +10,7 @@
             }
         },
         {
-            "datePublished": "2021-07-04T19:53:13.642234Z",
+            "datePublished": "2021-07-04T21:09:33.812716100Z",
             "license": {
                 "@id": "https:\/\/makesuretoactuallyimplementlicenceinput.com\/"
             },
@@ -30,10 +30,10 @@
         {
             "dateCreated": "2015-06-05T18:19:34Z",
             "hasSheet": [{
-                    "@id": "#List1-dd2d4463-"
+                    "@id": "#List1-ce2a3fe6-"
                 },
                 {
-                    "@id": "#List2-26a0edad-"
+                    "@id": "#List2-597a3801-"
                 }
             ],
             "@type": [
@@ -41,7 +41,7 @@
                 "xlsx2rocrate:ExcelWorkbook"
             ],
             "author": {
-                "@id": "#dda1ea73-a6ea-4074-843f-bec258423855"
+                "@id": "#80c2dca2-c5d4-4c47-8130-403c4982e3f1"
             },
             "dateModified": "2021-07-04T19:50:19Z",
             "@id": "simple_test.xlsx",
@@ -50,7 +50,7 @@
         {
             "@type": "Person",
             "name": "Filip Zoubek",
-            "@id": "#dda1ea73-a6ea-4074-843f-bec258423855"
+            "@id": "#80c2dca2-c5d4-4c47-8130-403c4982e3f1"
         },
         {
             "result": {
@@ -59,29 +59,29 @@
             "@type": "CreateAction",
             "description": "Process via which the file was created\/last saved",
             "instrument": {
-                "@id": "#0dd11bc0-0495-476f-98de-83c4d41a1aeb"
+                "@id": "#dc08d33b-77f8-4a4c-9ad1-e13134c8a28e"
             },
-            "@id": "#40406884-7e24-4162-b784-e22a6675e934"
+            "@id": "#2c35c1f0-e573-45e6-ad5f-43c7407a30db"
         },
         {
             "@type": "SoftwareApplication",
             "name": "Microsoft Excel",
-            "@id": "#0dd11bc0-0495-476f-98de-83c4d41a1aeb",
+            "@id": "#dc08d33b-77f8-4a4c-9ad1-e13134c8a28e",
             "version": "16.0300"
         },
         {
             "missing_values": true,
             "components": [{
-                    "@id": "#B-a1aebdcc-"
+                    "@id": "#B-ec037968-"
                 },
                 {
-                    "@id": "#A-cd846bcd-"
+                    "@id": "#A-d5a12cb2-"
                 },
                 {
-                    "@id": "#D-09b9e2de-"
+                    "@id": "#D-6efbe8d2-"
                 },
                 {
-                    "@id": "#C-10a3492e-"
+                    "@id": "#C-849225a7-"
                 }
             ],
             "@type": [
@@ -90,40 +90,40 @@
             ],
             "number_of_rows": 25,
             "number_of_cols": 4,
-            "@id": "#List1-dd2d4463-",
+            "@id": "#List1-ce2a3fe6-",
             "sheet_name": "List1"
         },
         {
             "missing_values": false,
             "components": [{
-                    "@id": "#G-be3999b4-"
+                    "@id": "#G-0e5a2e06-"
                 },
                 {
-                    "@id": "#D-87be6027-"
+                    "@id": "#D-fcc51582-"
                 },
                 {
-                    "@id": "#H-a7bfa69c-"
+                    "@id": "#H-b51daa67-"
                 },
                 {
-                    "@id": "#A-84f2f8fa-"
+                    "@id": "#A-64fcaa00-"
                 },
                 {
-                    "@id": "#I-35d2fb91-"
+                    "@id": "#I-e3cc0c59-"
                 },
                 {
-                    "@id": "#E-8acd8ef6-"
+                    "@id": "#E-d09d5e35-"
                 },
                 {
-                    "@id": "#B-01fb8bbb-"
+                    "@id": "#B-b1658287-"
                 },
                 {
-                    "@id": "#J-b56aaa10-"
+                    "@id": "#J-9f588186-"
                 },
                 {
-                    "@id": "#F-8a6a9599-"
+                    "@id": "#F-2da96d19-"
                 },
                 {
-                    "@id": "#C-fef85ec6-"
+                    "@id": "#C-096ea7ac-"
                 }
             ],
             "@type": [
@@ -132,7 +132,7 @@
             ],
             "number_of_rows": 33,
             "number_of_cols": 10,
-            "@id": "#List2-26a0edad-",
+            "@id": "#List2-597a3801-",
             "sheet_name": "List2"
         },
         {
@@ -152,7 +152,7 @@
             ],
             "mode_key": "Category 1",
             "column_name": "Column 2",
-            "@id": "#B-a1aebdcc-",
+            "@id": "#B-ec037968-",
             "category": [
                 "Category 1",
                 "Category 3",
@@ -176,7 +176,7 @@
             "median": 12.5,
             "mean": 12.5,
             "maximum": 24.0,
-            "@id": "#A-cd846bcd-",
+            "@id": "#A-d5a12cb2-",
             "minimum": 1.0,
             "missing_values_proportion": 0.0,
             "stdev": 6.855654600401044
@@ -195,7 +195,7 @@
             "median": 2.0,
             "mean": 2.4705882352941178,
             "maximum": 7.0,
-            "@id": "#D-09b9e2de-",
+            "@id": "#D-6efbe8d2-",
             "minimum": 1.0,
             "missing_values_proportion": 0.21739130434782608,
             "stdev": 1.4142135623730951
@@ -213,7 +213,7 @@
             ],
             "stdev_length": 0.0,
             "column_name": "Column 3",
-            "@id": "#C-10a3492e-",
+            "@id": "#C-849225a7-",
             "missing_values_proportion": 0.0,
             "minimum_length": 8
         },
@@ -231,7 +231,7 @@
             "median": 44.77499961853027,
             "mean": 45.1036981344223,
             "maximum": 47.223331451416016,
-            "@id": "#G-be3999b4-",
+            "@id": "#G-0e5a2e06-",
             "minimum": 44.36000061035156,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -250,7 +250,7 @@
             "median": 20.64833354949951,
             "mean": 20.57406234741211,
             "maximum": 21.53333282470703,
-            "@id": "#D-87be6027-",
+            "@id": "#D-fcc51582-",
             "minimum": 19.790000915527344,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -269,7 +269,7 @@
             "median": 20.133333206176758,
             "mean": 20.06291687488556,
             "maximum": 20.426666259765625,
-            "@id": "#H-a7bfa69c-",
+            "@id": "#H-b51daa67-",
             "minimum": 19.729999542236328,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -287,7 +287,7 @@
             ],
             "stdev_length": 0.0,
             "column_name": "date",
-            "@id": "#A-84f2f8fa-",
+            "@id": "#A-64fcaa00-",
             "missing_values_proportion": 0.0,
             "minimum_length": 19
         },
@@ -305,7 +305,7 @@
             "median": 46.03000068664551,
             "mean": 46.07700574398041,
             "maximum": 48.529998779296875,
-            "@id": "#I-35d2fb91-",
+            "@id": "#I-e3cc0c59-",
             "minimum": 44.72999954223633,
             "missing_values_proportion": 0.0,
             "stdev": 1.0
@@ -324,7 +324,7 @@
             "median": 46.31666564941406,
             "mean": 47.704609513282776,
             "maximum": 55.893333435058594,
-            "@id": "#E-8acd8ef6-",
+            "@id": "#E-d09d5e35-",
             "minimum": 44.96666717529297,
             "missing_values_proportion": 0.0,
             "stdev": 2.8284271247461903
@@ -343,7 +343,7 @@
             "median": 100.0,
             "mean": 134.6875,
             "maximum": 580.0,
-            "@id": "#B-01fb8bbb-",
+            "@id": "#B-b1658287-",
             "minimum": 50.0,
             "missing_values_proportion": 0.0,
             "stdev": 119.91663771137014
@@ -367,7 +367,7 @@
             ],
             "mode_key": "A",
             "column_name": "Result",
-            "@id": "#J-b56aaa10-",
+            "@id": "#J-9f588186-",
             "category": [
                 "A",
                 "B",
@@ -393,7 +393,7 @@
             "median": 20.09999942779541,
             "mean": 19.905625343322754,
             "maximum": 20.790000915527344,
-            "@id": "#F-8a6a9599-",
+            "@id": "#F-2da96d19-",
             "minimum": 19.200000762939453,
             "missing_values_proportion": 0.0,
             "stdev": 0.0
@@ -412,7 +412,7 @@
             "median": 30.0,
             "mean": 33.125,
             "maximum": 70.0,
-            "@id": "#C-fef85ec6-",
+            "@id": "#C-096ea7ac-",
             "minimum": 10.0,
             "missing_values_proportion": 0.0,
             "stdev": 14.0
@@ -424,7 +424,7 @@
             "qb": "http:\/\/purl.org\/linked-data\/cube#"
         },
         {
-            "xlsx2rocrate": "https:\/\/githubraw.com\/linkToTaggedTtlFileOfOntology#"
+            "xlsx2rocrate": "https:\/\/github.com\/e11938258\/RO-Crates-and-Excel\/blob\/v0.9.0\/ontology\/xlsx2rocrate.ttl#"
         }
     ]
 }
