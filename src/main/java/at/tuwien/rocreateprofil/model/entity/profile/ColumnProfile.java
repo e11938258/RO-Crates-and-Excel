@@ -9,8 +9,6 @@ import java.util.List;
 
 public interface ColumnProfile {
 
-    double MISSING_VALUE_PROPORTION = 0.3;
-
     void build(List<Cell> cells);
     
     ColumnType getColumnType();

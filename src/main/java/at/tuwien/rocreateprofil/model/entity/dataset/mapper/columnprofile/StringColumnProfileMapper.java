@@ -12,11 +12,13 @@ public class StringColumnProfileMapper implements ColumnProfileMapper {
         Long minLength = (Long) columnEntity.get(Xlsx2rocrateSchema.MINIMUM_LENGTH);
         Long maxLength = (Long) columnEntity.get(Xlsx2rocrateSchema.MAXIMUM_LENGTH);
         Double avgLength = (Double) columnEntity.get(Xlsx2rocrateSchema.AVERAGE_LENGTH);
+        Double stdev = (Double) columnEntity.get(Xlsx2rocrateSchema.STDEV_LENGTH);
 
         StringProfileColumn profile = new StringProfileColumn();
         profile.setMin(minLength);
         profile.setMax(maxLength);
         profile.setAvr(avgLength);
+        profile.setStdev(stdev);
 
         return profile;
     }

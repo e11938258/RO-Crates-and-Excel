@@ -10,12 +10,15 @@ import org.json.simple.JSONObject;
 
 import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Random;
+import java.util.regex.Pattern;
 
 public class StringProfileColumn implements ColumnProfile {
 
+    private Pattern alphaNumeric = Pattern.compile("^[\\p{IsAlphabetic}\\p{Digit}\\p{Space}]+$");
     private Long min = Long.MAX_VALUE, max = Long.MIN_VALUE;
-    private Double avr = null;
-    private boolean isAlphaNumericWithWhitespace = false;
+    private Double avr = null, stdev = null;
+    private boolean isAlphaNumericWithWhitespace = true;
 
     @Override
     public void build(List<Cell> cells) {
@@ -36,10 +39,23 @@ public class StringProfileColumn implements ColumnProfile {
             if (value.length() > max) {
                 max = (long) value.length();
             }
+
+            // Alphanumeric?
+            if (!alphaNumeric.matcher(value).find()) {
+                isAlphaNumericWithWhitespace = false;
+            }
         }
 
         // Calculate average length
         avr = sum / cells.size();
+        
+        // Calculate standard deviation
+        int tmp = 0;
+        for (Cell cell : cells) {
+            final String value = (String) cell.getValue().getValue();
+            tmp += Math.pow(value.length() - avr, 2);
+        }
+        stdev = Math.sqrt(tmp / cells.size());
 
         // Get encoding
         Charset.defaultCharset().displayName();
@@ -54,6 +70,7 @@ public class StringProfileColumn implements ColumnProfile {
     public void writeToFile(JSONObject object) {
         // Write properties of column
         object.put(Xlsx2rocrateSchema.FORMAT_TYPE, "string");
+        object.put(Xlsx2rocrateSchema.IS_ALPHA_NUMERIC, isAlphaNumericWithWhitespace);
         if (min != Integer.MAX_VALUE) {
             object.put(Xlsx2rocrateSchema.MINIMUM_LENGTH, min);
         }
@@ -62,6 +79,9 @@ public class StringProfileColumn implements ColumnProfile {
         }
         if (avr != null) {
             object.put(Xlsx2rocrateSchema.AVERAGE_LENGTH, avr);
+        }
+        if (stdev != null) {
+            object.put(Xlsx2rocrateSchema.STDEV_LENGTH, stdev);
         }
     }
 
@@ -94,10 +114,21 @@ public class StringProfileColumn implements ColumnProfile {
         this.avr = avr;
     }
 
+    public void setStdev(Double stdev) {
+        this.stdev = stdev;
+    }
+    
+//    @Override
+//    public String generateValidValue() {
+//        int numberOfCharacters = (int) ((int) (Math.random() * (max - min)) + min);
+//        return RandomStringUtils.randomAlphabetic(numberOfCharacters);
+//    }
+    
     @Override
     public String generateValidValue() {
-        int numberOfCharacters = (int) ((int) (Math.random() * (max - min)) + min);
-        return RandomStringUtils.randomAlphabetic(numberOfCharacters);
+        Random r = new Random();
+        int cellValue = (int) Math.ceil(r.nextGaussian() * stdev + avr);
+        return RandomStringUtils.randomAlphabetic(cellValue);
     }
 
 }

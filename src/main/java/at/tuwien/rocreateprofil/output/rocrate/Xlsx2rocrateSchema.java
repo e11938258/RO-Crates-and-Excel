@@ -15,8 +15,11 @@ public class Xlsx2rocrateSchema {
     public static final String MISSING_VALUES = "missing_values";
     
     public static final String COLUMN_ID = "column_id";
+    public static final String MISSING_VALUES_PROPORTION = "missing_values_proportion";
     public static final String COLUMN_NAME = "column_name";
     public static final String FORMAT_TYPE = "format_type";
+    public static final String CATEGORY = "category";
+    public static final String CATEGORY_PROPORTIONS = "category_proportions";
     public static final String MODE = "mode";
     public static final String MODE_KEY = "mode_key";
     public static final String MODE_IN_PERCENT = "mode_in_percent";
@@ -29,8 +32,10 @@ public class Xlsx2rocrateSchema {
     public static final String SUM = "sum";
     public static final String INTEGER = "integer";
     
+    public static final String IS_ALPHA_NUMERIC = "alpha_numeric";
     public static final String MINIMUM_LENGTH = "minimum_length";
     public static final String MAXIMUM_LENGTH = "maximum_length";
     public static final String AVERAGE_LENGTH = "average_length";
+    public static final String STDEV_LENGTH = "stdev_length";
     
 }

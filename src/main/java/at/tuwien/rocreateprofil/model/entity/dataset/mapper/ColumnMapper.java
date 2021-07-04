@@ -25,11 +25,13 @@ public class ColumnMapper {
         String name = (String) columnContextEntity.get(Xlsx2rocrateSchema.COLUMN_ID);
         String headerName = (String) columnContextEntity.get(Xlsx2rocrateSchema.COLUMN_NAME);
         Boolean missingValues = (Boolean) columnContextEntity.get(Xlsx2rocrateSchema.MISSING_VALUES);
+        Double missingValuesProportion = (Double) columnContextEntity.get(Xlsx2rocrateSchema.MISSING_VALUES_PROPORTION);
 
         // map column properties
         Column column = new Column(name, id);
         column.setMissingValues(missingValues);
         column.setHeaderName(headerName);
+        column.setMissingValuesProportion(missingValuesProportion);
 
         // profile
         ColumnProfile profile = mapColumnProfile(columnContextEntity, column);

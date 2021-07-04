@@ -78,14 +78,14 @@ public class ExcelAppContentParser implements ExcelParser {
             }
             fileDataEntity.put(Xlsx2rocrateSchema.SHEET, sheetsArr);
 
-            // Wrtie all sheets
+            // Write all sheets
             for (Sheet sheet : sheets.values()) {
                 JSONObject sheetDataEntity = new JSONObject();
                 sheet.writeToFile(sheetDataEntity);
                 roCrateMetadataGraph.add(sheetDataEntity);
             }
 
-            // Wrtie all columns
+            // Write all columns
             for (Sheet sheet : sheets.values()) {
                 for (Column column : sheet.getColumns()) {
                     JSONObject columnDataEntity = new JSONObject();

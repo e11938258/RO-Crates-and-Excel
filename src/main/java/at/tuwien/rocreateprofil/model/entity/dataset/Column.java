@@ -22,6 +22,7 @@ public class Column {
     private String headerName = null;
     private ColumnProfile columnProfile;
     private boolean missingValues = false;
+    private Double missingValuesProportion = 0.0;
 
     public Column(String excelId, String id) {
         this.name = excelId;
@@ -50,6 +51,7 @@ public class Column {
                     - Integer.parseInt(cells.get(0).getId().replace(name, ""));
             if (cells.size() < count) {
                 missingValues = true;
+                missingValuesProportion = (Double.valueOf(count) - cells.size()) / count;
             }
 
             // Get header
@@ -108,6 +110,9 @@ public class Column {
         // Column id
         object.put(Xlsx2rocrateSchema.COLUMN_ID, name);
 
+        // Column id
+        object.put(Xlsx2rocrateSchema.MISSING_VALUES_PROPORTION, missingValuesProportion);
+
         // Header name
         if (headerName != null) {
             object.put(Xlsx2rocrateSchema.COLUMN_NAME, headerName);
@@ -120,7 +125,7 @@ public class Column {
     }
 
     public String generateValidValueForColumn() {
-        if (Math.random() >= ColumnProfile.MISSING_VALUE_PROPORTION) {
+        if (Math.random() >= missingValuesProportion) {
             return columnProfile.generateValidValue();
         }
         return StringUtils.EMPTY;
@@ -152,5 +157,9 @@ public class Column {
 
     public void setMissingValues(boolean missingValues) {
         this.missingValues = missingValues;
+    }
+
+    public void setMissingValuesProportion(Double missingValuesProportion) {
+        this.missingValuesProportion = missingValuesProportion;
     }
 }

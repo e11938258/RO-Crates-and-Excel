@@ -4,7 +4,6 @@ import at.tuwien.rocreateprofil.model.entity.dataset.Cell;
 import at.tuwien.rocreateprofil.model.entity.dataset.ColumnType;
 import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.ColumnProfileMapper;
 import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.NumericColumnProfileMapper;
-import at.tuwien.rocreateprofil.model.entity.value.Type;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
 import org.json.simple.JSONObject;
 
@@ -174,7 +173,7 @@ public class NumericProfileColumn implements ColumnProfile {
     @Override
     public String generateValidValue() {
         Random r = new Random();
-        double cellValue = r.nextGaussian()*stdev+mean;
+        double cellValue = r.nextGaussian() * stdev + mean;
         return String.valueOf(integer ? (int) cellValue : cellValue);
     }
 

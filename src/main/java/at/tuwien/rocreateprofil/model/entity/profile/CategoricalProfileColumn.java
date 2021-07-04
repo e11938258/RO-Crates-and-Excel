@@ -4,19 +4,20 @@ import at.tuwien.rocreateprofil.model.entity.dataset.Cell;
 import at.tuwien.rocreateprofil.model.entity.dataset.ColumnType;
 import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.CategoricalColumnProfileMapper;
 import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.ColumnProfileMapper;
-import at.tuwien.rocreateprofil.model.entity.value.Type;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
 import java.util.HashMap;
 import java.util.List;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class CategoricalProfileColumn implements ColumnProfile {
 
     private final HashMap<String, Integer> categories = new HashMap<>();
-    private final Type type = Type.StringValue;
+    private final HashMap<String, Double> categoryProportions = new HashMap<>();
     private Long mode = null;
     private String modeKey = null;
     private Double modeInPercent = null;
+    private Integer c = 0;
 
     @Override
     public void build(List<Cell> cells) {
@@ -31,6 +32,8 @@ public class CategoricalProfileColumn implements ColumnProfile {
             } else {
                 categories.put(value, 1);
             }
+
+            c++;
         }
 
         // Get mode
@@ -68,6 +71,16 @@ public class CategoricalProfileColumn implements ColumnProfile {
         if (modeInPercent != null) {
             object.put(Xlsx2rocrateSchema.MODE_IN_PERCENT, modeInPercent);
         }
+        // Write proportion of categories
+        final JSONArray cat = new JSONArray();
+        final JSONArray catProp = new JSONArray();
+        for (String string : categories.keySet()) {
+            cat.add(string);
+            final Double prop = Double.valueOf(categories.get(string)) / c;
+            catProp.add(prop);
+        }
+        object.put(Xlsx2rocrateSchema.CATEGORY, cat);
+        object.put(Xlsx2rocrateSchema.CATEGORY_PROPORTIONS, catProp);
     }
 
     @Override
@@ -97,6 +110,10 @@ public class CategoricalProfileColumn implements ColumnProfile {
 
     public void setModeInPercent(Double modeInPercent) {
         this.modeInPercent = modeInPercent;
+    }
+
+    public HashMap<String, Double> getCategoryProportions() {
+        return categoryProportions;
     }
 
     @Override
