@@ -8,17 +8,10 @@ import at.tuwien.rocreateprofil.output.excel.SheetInserter;
 import at.tuwien.rocreateprofil.output.excel.WorkbookWriter;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
-import org.apache.commons.lang3.NotImplementedException;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Map;
 

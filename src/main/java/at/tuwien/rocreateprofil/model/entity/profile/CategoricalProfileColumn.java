@@ -5,10 +5,11 @@ import at.tuwien.rocreateprofil.model.entity.dataset.ColumnType;
 import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.CategoricalColumnProfileMapper;
 import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.ColumnProfileMapper;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
-import java.util.HashMap;
-import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class CategoricalProfileColumn implements ColumnProfile {
 
@@ -118,6 +119,17 @@ public class CategoricalProfileColumn implements ColumnProfile {
 
     @Override
     public String generateValidValue() {
-        return modeKey;
+        return retrieveCategoryByRandomPercentage(Math.random());
+    }
+
+    private String retrieveCategoryByRandomPercentage(double randomlyGeneratedPercentage) {
+        double percentTotal = 0.0;
+        for (String key: categoryProportions.keySet()) {
+            percentTotal += categoryProportions.get(key);
+            if (percentTotal >= randomlyGeneratedPercentage) {
+                return key;
+            }
+        }
+        throw new IllegalStateException("Should not happen!");
     }
 }
