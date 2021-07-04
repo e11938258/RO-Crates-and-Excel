@@ -45,7 +45,7 @@ public class RoCrateSchema {
     public static final String RO_CRATE_CONTEXT_VALUE = SCHEMA_VERSION + "/context";
     public static final Object DATA_CUBE_CONTEXT = "http://purl.org/linked-data/cube#";
     public static final Object DATA_CUBE_NAMESPACE = "qb";
-    public static final String CUSTOM_ONTOLOGY_CONTEXT = "https://githubraw.com/linkToTaggedTtlFileOfOntology#";
+    public static final String CUSTOM_ONTOLOGY_CONTEXT = "https://github.com/e11938258/RO-Crates-and-Excel/blob/v0.9.0/ontology/xlsx2rocrate.ttl#";
     public static final String CUSTOM_ONTOLOGY_NAMESPACE = "xlsx2rocrate";
     
     public static final String COMPONENTS = "components";
