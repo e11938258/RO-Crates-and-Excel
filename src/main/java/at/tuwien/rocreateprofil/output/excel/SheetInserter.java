@@ -30,7 +30,6 @@ public class SheetInserter {
             for (Column column : sheet.getColumns()) {
                 int columnIndex = mapColumnLetterToNumber(column.getName());
                 String value = column.generateValidValueForColumn();
-                System.out.println("Inserting:" + value);
                 insertedRow.createCell(columnIndex).setCellValue(value);
             }
             rowsInserted++;
