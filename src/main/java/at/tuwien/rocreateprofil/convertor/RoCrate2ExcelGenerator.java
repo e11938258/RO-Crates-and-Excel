@@ -68,6 +68,6 @@ public class RoCrate2ExcelGenerator implements Convertor {
 
     @Override
     public void writeOutput() {
-        WorkbookWriter.write(workbook, outputFileName);
+        WorkbookWriter.write(workbook, outputFileName + ".xls");
     }
 }

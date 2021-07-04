@@ -1,62 +1,328 @@
 {
     "metadata": {
-        "name": "RO-Create Profile",
+        "name": "RO-Create Excel Profile",
         "version": 1.0
     },
-    "items": {
-        "Collection": {
-            "metadata": {
-                "about": "Collection.",
-                "allowAdditionalProperties": false
-            },
-            "inputs": [{
-                "property": "additionalType",
-                "label": "Additional Type"
-            }]
-        },
-        "Item": {
-            "metadata": {
-                "about": "Item.",
-                "allowAdditionalProperties": false
-            },
-            "inputs": [{
-                "property": "additionalType",
-                "label": "Additional Type"
-            }]
-        }
-    },
     "typeDefinitions": {
-        "License": {
+        "CreativeWork": {
             "metadata": {
                 "allowAdditionalProperties": false
             },
             "inputs": [{
-                    "property": "name",
-                    "@type": "Select",
-                    "required": true,
-                    "multiple": false,
-                    "group": "important",
-                    "options": [
-                        ""
-                    ]
-                },
-                {
-                    "property": "description",
-                    "@type": "TextArea",
-                    "multiple": false
+                "property": "description",
+                "@type": "Text",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "about",
+                "required": true,
+                "multiple": false,
+                "definition": {
+                    "@id": "#",
+                    "@type": "Property"
                 }
-            ]
+            }, {
+                "property": "conformsTo",
+                "required": true,
+                "multiple": false,
+                "definition": {
+                    "@id": "#",
+                    "@type": "Property"
+                }
+            }]
         },
-        "Language": {
+        "Dataset": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "datePublished",
+                "@type": "Date",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "name",
+                "@type": "Text",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "description",
+                "@type": "Text",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "hasPart",
+                "@type": "Array",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "license",
+                "required": true,
+                "multiple": false,
+                "definition": {
+                    "@id": "#",
+                    "@type": "Property"
+                }
+            }]
+        },
+        "File": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "dateCreated",
+                "@type": "Date",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "dateModified",
+                "@type": "Date",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "author",
+                "required": true,
+                "multiple": false,
+                "definition": {
+                    "@id": "#",
+                    "@type": "Property"
+                }
+            }]
+        },
+        "ExcelWorkbook": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "encoding",
+                "@type": "Text",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "sheet",
+                "@type": "Array",
+                "required": true,
+                "multiple": false
+            }]
+        },
+        "Person": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "name",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }]
+        },
+        "CreateAction": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "description",
+                "@type": "Text",
+                "required": false,
+                "multiple": false
+            }, {
+                "property": "result",
+                "required": true,
+                "multiple": false,
+                "definition": {
+                    "@id": "#",
+                    "@type": "Property"
+                }
+            }, {
+                "property": "instrument",
+                "required": true,
+                "multiple": false,
+                "definition": {
+                    "@id": "#",
+                    "@type": "Property"
+                }
+            }]
+        },
+        "SoftwareApplication": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "name",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "version",
+                "@type": "Text",
+                "required": false,
+                "multiple": false
+            }]
+        },
+        "DataStructureDefinition": {
             "metadata": {
                 "allowAdditionalProperties": false
             }
+        },
+        "ExcelSheet": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "number_of_rows",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "number_of_cols",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "sheet_name",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "missing_values",
+                "@type": "Boolean",
+                "required": false,
+                "multiple": false
+            }]
+        },
+        "DimensionProperty": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "components",
+                "required": true,
+                "multiple": false
+            }]
+        },
+        "ExcelColumn": {
+            "metadata": {
+                "allowAdditionalProperties": false
+            },
+            "inputs": [{
+                "property": "missing_values",
+                "@type": "Boolean",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "format_type",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "missing_values_proportion",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "column_id",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "column_name",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "mode",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "mode_key",
+                "@type": "Text",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "mode_in_percent",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "category",
+                "@type": "Array",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "category_proportions",
+                "@type": "Array",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "sum",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "integer",
+                "@type": "Boolean",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "median",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "mean",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "maximum",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "stdev",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "maximum_length",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "average_length",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "stdev_length",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "minimum_length",
+                "@type": "Number",
+                "required": true,
+                "multiple": false
+            }, {
+                "property": "alpha_numeric",
+                "@type": "Boolean",
+                "required": false,
+                "multiple": false
+            }]
         }
     },
     "enabledCoreTypes": [
-        ""
-    ],
-    "dataPacks": [
-        ""
+        "CreativeWork",
+        "Dataset",
+        "File",
+        "ExcelWorkbook",
+        "Person",
+        "CreateAction",
+        "SoftwareApplication",
+        "DataStructureDefinition",
+        "ExcelSheet",
+        "DimensionProperty",
+        "ExcelColumn"
     ]
 }

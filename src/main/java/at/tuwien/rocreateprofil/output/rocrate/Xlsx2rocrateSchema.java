@@ -6,7 +6,7 @@ public class Xlsx2rocrateSchema {
     public static final String EXCEL_SHEET = "ExcelSheet";
     public static final String EXCEL_COLUMN = "ExcelColumn";
     
-    public static final String SHEET = "sheet";
+    public static final String SHEET = "hasSheet";
     public static final String ENCODING = "encoding";
     
     public static final String SHEET_NAME = "sheet_name";

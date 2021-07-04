@@ -1,25 +1,33 @@
-ExcelWorkbook MUST
-    encoding MAY
-ExcelSheet MUST
-    number_of_rows SHOULD
-    number_of_cols SHOULD
-    sheet_name SHOULD
-    missing_values MAY
-ExcelColumn MUST
-    format_type MUST
-    column_id SHOULD
-    missing_values MAY
-    column_name SHOULD
-    mode MAY
-    mode_key MAY
-    mode_in_percent MAY
-    sum MAY
-    integer MAY
-    median MAY
-    mean MAY
-    maximum MAY
-    minimum MAY
-    stdev MAY
-    maximum_length MAY
-    average_length MAY
-    minimum_length MAY
+Excel profile MUST contain a data entity of type ["CreativeWork", "Dataset", "File", "ExcelWorkbook", "Person", "CreateAction", "SoftwareApplication", "DataStructureDefinition", "ExcelSheet", "DimensionProperty", "ExcelColumn"].
+All data entity MUST containt a data property ["@id", "@type"].
+
+CreativeWork MAY contain a data property ["description"].
+CreativeWork MUST refer to the Dataset via "about".
+CreativeWork MUST refer to the RO-Crate Metadata Specification via "conformsTo".
+
+Dataset SHOULD contain a data property ["datePublished", "name"].
+Dataset MAY contain a data property ["description"].
+Dataset MUST refer to the File via "hasPart".
+Dataset MUST refer to the license via "license".
+
+File MAY contain a data property ["dateCreated", "dateModified"].
+File MUST refer to the Person via "author".
+ExcelWorkbook MAY contain a data property ["encoding"].
+ExcelWorkbook MUST refer to the ExcelSheet via "sheet".
+
+Person MUST contain a data property ["name"].
+
+CreateAction MAY contain a data property ["description"].
+CreateAction MUST refer to the File via "result".
+CreateAction MUST refer to the SoftwareApplication via "instrument".
+
+SoftwareApplication MUST contain a data property ["name"].
+SoftwareApplication MAY contain a data property ["version"].
+
+ExcelSheet MUST contain a data property ["number_of_rows", "number_of_cols", "sheet_name"].
+ExcelSheet MAY contain a data property ["missing_values"].
+DataStructureDefinition MUST refer to the ExcelColumn via "components".
+
+ExcelColumn MUST contain a data property ["missing_values", "format_type", "missing_values_proportion", "column_id", "column_name"].
+ExcelColumn MUST contain a data property ["mode", "mode_key", "mode_in_percent", "category", "category_proportions"] for categorical format type OR ["sum", "integer", "median", "mean", "maximum", "minimum", "stdev"] for numeric format type OR ["maximum_length", "average_length", "stdev_length", "minimum_length"] for string format type.
+ExcelColumn MAY contain a data property ["alpha_numeric"] for string format.
