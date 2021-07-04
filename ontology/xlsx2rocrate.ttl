@@ -1,19 +1,19 @@
-@prefix : <https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#> .
+@prefix : <https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology> .
+@base <https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl> .
 
-<https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology> rdf:type owl:Ontology ;
+<https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl> rdf:type owl:Ontology ;
                                                                            rdfs:label "RoCrate ontology" .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#hasColumn
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#hasColumn
 :hasColumn rdf:type owl:ObjectProperty ;
                                                                                 rdfs:subPropertyOf owl:topObjectProperty ;
                                                                                 rdfs:domain :ExcelSheet ;
@@ -21,7 +21,7 @@
                                                                                 rdfs:label "hasColumn"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#hasSheet
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#hasSheet
 :hasSheet rdf:type owl:ObjectProperty ;
                                                                                rdfs:subPropertyOf owl:topObjectProperty ;
                                                                                rdfs:domain :ExcelWorkbook ;
@@ -33,42 +33,49 @@
 #    Data properties
 #################################################################
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#average_length
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#average_length
 :average_length rdf:type owl:DatatypeProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain :ExcelColumn ;
                                                                                      rdfs:label "average_length"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#column_id
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#column_id
 :column_id rdf:type owl:DatatypeProperty ;
                                                                                 rdfs:subPropertyOf owl:topDataProperty ;
                                                                                 rdfs:domain :ExcelColumn ;
                                                                                 rdfs:label "column_id"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#column_name
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#missing_values_proportion
+:missing_values_proportion rdf:type owl:DatatypeProperty ;
+                                                                                rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                rdfs:domain :ExcelColumn ;
+                                                                                rdfs:label "missing_values_proportion"@en .
+
+
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#column_name
 :column_name rdf:type owl:DatatypeProperty ;
                                                                                   rdfs:subPropertyOf owl:topDataProperty ;
                                                                                   rdfs:domain :ExcelColumn ;
                                                                                   rdfs:label "column_name"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#encoding
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#encoding
 :encoding rdf:type owl:DatatypeProperty ;
                                                                                rdfs:subPropertyOf owl:topDataProperty ;
                                                                                rdfs:domain :ExcelWorkbook ;
                                                                                rdfs:label "encoding"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#format_type
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#format_type
 :format_type rdf:type owl:DatatypeProperty ;
                                                                                   rdfs:subPropertyOf owl:topDataProperty ;
                                                                                   rdfs:domain :ExcelColumn ;
                                                                                   rdfs:label "format_type"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#integer
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#integer
 :integer rdf:type owl:DatatypeProperty ;
                                                                               rdfs:subPropertyOf owl:topDataProperty ;
                                                                               rdfs:domain :ExcelColumn ;
@@ -76,7 +83,7 @@
                                                                               rdfs:label "integer"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#maximum
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#maximum
 :maximum rdf:type owl:DatatypeProperty ;
                                                                               rdfs:subPropertyOf owl:topDataProperty ;
                                                                               rdfs:domain :ExcelColumn ;
@@ -84,14 +91,14 @@
                                                                               rdfs:label "maximum"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#maximum_length
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#maximum_length
 :maximum_length rdf:type owl:DatatypeProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain :ExcelColumn ;
                                                                                      rdfs:label "maximum_length"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mean
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#mean
 :mean rdf:type owl:DatatypeProperty ;
                                                                            rdfs:subPropertyOf owl:topDataProperty ;
                                                                            rdfs:domain :ExcelColumn ;
@@ -99,7 +106,7 @@
                                                                            rdfs:label "mean"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#median
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#median
 :median rdf:type owl:DatatypeProperty ;
                                                                              rdfs:subPropertyOf owl:topDataProperty ;
                                                                              rdfs:domain :ExcelColumn ;
@@ -107,7 +114,7 @@
                                                                              rdfs:label "median"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#minimum
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#minimum
 :minimum rdf:type owl:DatatypeProperty ;
                                                                               rdfs:subPropertyOf owl:topDataProperty ;
                                                                               rdfs:domain :ExcelColumn ;
@@ -115,14 +122,28 @@
                                                                               rdfs:label "minimum"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#minimum_length
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#minimum_length
 :minimum_length rdf:type owl:DatatypeProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain :ExcelColumn ;
                                                                                      rdfs:label "minimum_length"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#missing_values
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#alpha_numeric
+:alpha_numeric rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelColumn ;
+                                                                                     rdfs:label "alpha_numeric"@en .
+
+
+###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/stdev_length#alpha_numeric
+:stdev_length rdf:type owl:DatatypeProperty ;
+                                                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                     rdfs:domain :ExcelColumn ;
+                                                                                     rdfs:label "stdev_length"@en .
+
+
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#missing_values
 :missing_values rdf:type owl:DatatypeProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain :ExcelColumn ,
@@ -131,7 +152,7 @@
                                                                                      rdfs:label "missing_values"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mode
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#mode
 :mode rdf:type owl:DatatypeProperty ;
                                                                            rdfs:subPropertyOf owl:topDataProperty ;
                                                                            rdfs:domain :ExcelColumn ;
@@ -139,7 +160,7 @@
                                                                            rdfs:label "mode"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mode_in_percent
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#mode_in_percent
 :mode_in_percent rdf:type owl:DatatypeProperty ;
                                                                                       rdfs:subPropertyOf owl:topDataProperty ;
                                                                                       rdfs:domain :ExcelColumn ;
@@ -147,14 +168,28 @@
                                                                                       rdfs:label "mode_in_percent"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#mode_key
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#mode_key
 :mode_key rdf:type owl:DatatypeProperty ;
                                                                                rdfs:subPropertyOf owl:topDataProperty ;
                                                                                rdfs:domain :ExcelColumn ;
                                                                                rdfs:label "mode_key"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#number_of_cols
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#category
+:category rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:subPropertyOf owl:topDataProperty ;
+                                                                               rdfs:domain :ExcelColumn ;
+                                                                               rdfs:label "category"@en .
+
+
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#category_proportions
+:category_proportions rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:subPropertyOf owl:topDataProperty ;
+                                                                               rdfs:domain :ExcelColumn ;
+                                                                               rdfs:label "category_proportions"@en .
+
+
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#number_of_cols
 :number_of_cols rdf:type owl:DatatypeProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain :ExcelSheet ;
@@ -162,7 +197,7 @@
                                                                                      rdfs:label "number_of_cols"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#number_of_rows
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#number_of_rows
 :number_of_rows rdf:type owl:DatatypeProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain :ExcelSheet ;
@@ -170,14 +205,14 @@
                                                                                      rdfs:label "number_of_rows"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#sheet_name
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#sheet_name
 :sheet_name rdf:type owl:DatatypeProperty ;
                                                                                  rdfs:subPropertyOf owl:topDataProperty ;
                                                                                  rdfs:domain :ExcelSheet ;
                                                                                  rdfs:label "sheet_name"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#stdev
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#stdev
 :stdev rdf:type owl:DatatypeProperty ;
                                                                             rdfs:subPropertyOf owl:topDataProperty ;
                                                                             rdfs:domain :ExcelColumn ;
@@ -185,7 +220,7 @@
                                                                             rdfs:label "stdev"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#sum
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#sum
 :sum rdf:type owl:DatatypeProperty ;
                                                                           rdfs:subPropertyOf owl:topDataProperty ;
                                                                           rdfs:domain :ExcelColumn ;
@@ -197,17 +232,17 @@
 #    Classes
 #################################################################
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelColumn
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#ExcelColumn
 :ExcelColumn rdf:type owl:Class ;
                                                                                  rdfs:label "ExcelColumn"@en .
                                                                                  
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelSheet
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#ExcelSheet
 :ExcelSheet rdf:type owl:Class ;
                                                                                  rdfs:label "ExcelSheet"@en .
 
 
-###  https://github.com/e11938258/RO-Crates-and-Excel/tree/main/ontology#ExcelWorkbook
+###  https://raw.githubusercontent.com/e11938258/RO-Crates-and-Excel/main/ontology/xlsx2rocrate.ttl#ExcelWorkbook
 :ExcelWorkbook rdf:type owl:Class ;
                                                                                     rdfs:label "ExcelWorkbook"@en .
 
