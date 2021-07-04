@@ -174,6 +174,8 @@ public class NumericProfileColumn implements ColumnProfile {
     public String generateValidValue() {
         Random r = new Random();
         double cellValue = r.nextGaussian() * stdev + mean;
+        cellValue = Math.max(cellValue, min);
+        cellValue = Math.min(cellValue, max);
         return String.valueOf(integer ? (int) cellValue : cellValue);
     }
 

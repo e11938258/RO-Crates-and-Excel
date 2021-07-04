@@ -128,6 +128,8 @@ public class StringProfileColumn implements ColumnProfile {
     public String generateValidValue() {
         Random r = new Random();
         int cellValue = (int) Math.ceil(r.nextGaussian() * stdev + avr);
+        cellValue = (int) Math.max(cellValue, min);
+        cellValue = (int) Math.min(cellValue, max);
         return RandomStringUtils.randomAlphabetic(cellValue);
     }
 
