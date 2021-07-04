@@ -1,6 +1,9 @@
 package at.tuwien.rocreateprofil.model.entity.profile;
 
 import at.tuwien.rocreateprofil.model.entity.dataset.Cell;
+import at.tuwien.rocreateprofil.model.entity.dataset.ColumnType;
+import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.CategoricalColumnProfileMapper;
+import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.ColumnProfileMapper;
 import at.tuwien.rocreateprofil.model.entity.value.Type;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
 import java.util.HashMap;
@@ -10,8 +13,8 @@ import org.json.simple.JSONObject;
 public class CategoricalProfileColumn implements ColumnProfile {
 
     private final HashMap<String, Integer> categories = new HashMap<>();
-    private Type type = Type.StringValue;
-    private Integer mode = null;
+    private final Type type = Type.StringValue;
+    private Long mode = null;
     private String modeKey = null;
     private Double modeInPercent = null;
 
@@ -19,7 +22,7 @@ public class CategoricalProfileColumn implements ColumnProfile {
     public void build(List<Cell> cells) {
 
         for (Cell cell : cells) {
-            final String value = (String) cell.getValue().getValue();
+            final String value = String.valueOf(cell.getValue().getValue());
 
             // Get value
             Integer count = categories.get(value);
@@ -31,11 +34,11 @@ public class CategoricalProfileColumn implements ColumnProfile {
         }
 
         // Get mode
-        mode = 0;
+        mode = 0L;
         modeKey = "";
 
         for (String key : categories.keySet()) {
-            final Integer value = categories.get(key);
+            final Long value = Long.valueOf(categories.get(key));
             // New mode?
             if (value > mode) {
                 mode = value;
@@ -48,8 +51,8 @@ public class CategoricalProfileColumn implements ColumnProfile {
     }
 
     @Override
-    public Type getType() {
-        return type;
+    public ColumnType getColumnType() {
+        return ColumnType.CATEGORICAL;
     }
 
     @Override
@@ -67,4 +70,37 @@ public class CategoricalProfileColumn implements ColumnProfile {
         }
     }
 
+    @Override
+    public ColumnProfileMapper getProfileMapper() {
+        return new CategoricalColumnProfileMapper();
+    }
+
+    public Long getMode() {
+        return mode;
+    }
+
+    public void setMode(Long mode) {
+        this.mode = mode;
+    }
+
+    public String getModeKey() {
+        return modeKey;
+    }
+
+    public void setModeKey(String modeKey) {
+        this.modeKey = modeKey;
+    }
+
+    public Double getModeInPercent() {
+        return modeInPercent;
+    }
+
+    public void setModeInPercent(Double modeInPercent) {
+        this.modeInPercent = modeInPercent;
+    }
+
+    @Override
+    public String generateValidValue() {
+        return modeKey;
+    }
 }

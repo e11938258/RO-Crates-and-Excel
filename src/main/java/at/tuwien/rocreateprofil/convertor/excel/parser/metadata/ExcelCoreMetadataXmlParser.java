@@ -1,16 +1,16 @@
 package at.tuwien.rocreateprofil.convertor.excel.parser.metadata;
 
-import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
-import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
+import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.time.Instant;
-
-import static at.tuwien.rocreateprofil.exception.Error.FAILED_TO_PROCESS_EXCEL_METADATA;
+import java.util.logging.Logger;
 
 public class ExcelCoreMetadataXmlParser {
+
+    private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
 
     private static final String CORE_METADATA_FILE = "docProps/core.xml";
 
@@ -20,7 +20,8 @@ public class ExcelCoreMetadataXmlParser {
             NodeList list = doc.getElementsByTagNameNS("http://purl.org/dc/elements/1.1/", "creator");
             return list.item(0).getFirstChild().getTextContent();
         } catch (Exception e) {
-            throw new RoCrateProfileBaseException(FAILED_TO_PROCESS_EXCEL_METADATA);
+            logger.info("Failed to locate author in excel metadata - skipping...");
+            return null;
         }
     }
 
@@ -32,7 +33,8 @@ public class ExcelCoreMetadataXmlParser {
             Instant createdDate = Instant.parse(createdDateString);
             return createdDate.toString();
         } catch (Exception e) {
-            throw new RoCrateProfileBaseException(FAILED_TO_PROCESS_EXCEL_METADATA);
+            logger.info("Failed to locate dateCreated in excel metadata - skipping...");
+            return null;
         }
     }
 
@@ -44,7 +46,8 @@ public class ExcelCoreMetadataXmlParser {
             Instant createdDate = Instant.parse(createdDateString);
             return createdDate.toString();
         } catch (Exception e) {
-            throw new RoCrateProfileBaseException(FAILED_TO_PROCESS_EXCEL_METADATA);
+            logger.info("Failed to locate dateModified in excel metadata - skipping...");
+            return null;
         }
     }
 

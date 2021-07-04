@@ -1,6 +1,6 @@
 package at.tuwien.rocreateprofil.output.rocrate;
 
-import at.tuwien.rocreateprofil.exception.Error;
+import at.tuwien.rocreateprofil.exception.RoCrateError;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 import at.tuwien.rocreateprofil.model.entity.rocrate.RoCrate;
 import org.apache.commons.lang3.StringUtils;
@@ -60,7 +60,7 @@ public class RoCrateOutputCreator {
                 copyFile(roCrateDataRoot, file);
             }
         } catch (IOException e) {
-            throw new RoCrateProfileBaseException(Error.CANNOT_MOVE_FILE_TO_RO_CRATE, currentFile);
+            throw new RoCrateProfileBaseException(RoCrateError.CANNOT_MOVE_FILE_TO_RO_CRATE, currentFile);
         }
     }
 
@@ -103,13 +103,13 @@ public class RoCrateOutputCreator {
             file = new FileWriter(metadataPath);
             file.write(roCrateMetadata.toString());
         } catch (IOException e) {
-            throw new RoCrateProfileBaseException(Error.RO_CRATE_CONTENT_WRITE_FAILED, metadataPath);
+            throw new RoCrateProfileBaseException(RoCrateError.RO_CRATE_CONTENT_WRITE_FAILED, metadataPath);
         } finally {
             try {
                 file.flush();
                 file.close();
             } catch (IOException e) {
-                throw new RoCrateProfileBaseException(Error.RO_CRATE_CONTENT_WRITE_FAILED, metadataPath);
+                throw new RoCrateProfileBaseException(RoCrateError.RO_CRATE_CONTENT_WRITE_FAILED, metadataPath);
             }
         }
     }
@@ -121,7 +121,7 @@ public class RoCrateOutputCreator {
                 Files.createDirectory(rootDirectoryPath);
             }
         } catch (IOException e) {
-            throw new RoCrateProfileBaseException(Error.RO_CRATE_ROOT_DIRECTORY_FAILED, rootDirectoryPath.toString());
+            throw new RoCrateProfileBaseException(RoCrateError.RO_CRATE_ROOT_DIRECTORY_FAILED, rootDirectoryPath.toString());
         }
         return rootDirectoryPath;
     }

@@ -2,13 +2,13 @@ package at.tuwien.rocreateprofil.arguments.handler;
 
 import at.tuwien.rocreateprofil.convertor.Convertor;
 import at.tuwien.rocreateprofil.arguments.CommandLineArgument;
-import at.tuwien.rocreateprofil.exception.Error;
+import at.tuwien.rocreateprofil.exception.RoCrateError;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 
 import java.util.Map;
 import java.util.Stack;
 
-import static at.tuwien.rocreateprofil.exception.Error.ARGUMENT_MANDATORY_PARAMETERS_NOT_PROCESSED;
+import static at.tuwien.rocreateprofil.exception.RoCrateError.ARGUMENT_MANDATORY_PARAMETERS_NOT_PROCESSED;
 
 public interface ArgumentHandler {
 
@@ -22,7 +22,7 @@ public interface ArgumentHandler {
         int argumentsLeft = remainingArgumentStack.size();
         int argumentsRequired = argument.getNumberOfAdditionalArgumentsConsumed();
         if (argumentsLeft < argumentsRequired) {
-            throw new RoCrateProfileBaseException(Error.INSUFFICIENT_ARGUMENTS_TO_CONSUME, argument.getArgument(), argumentsRequired, argumentsLeft);
+            throw new RoCrateProfileBaseException(RoCrateError.INSUFFICIENT_ARGUMENTS_TO_CONSUME, argument.getArgument(), argumentsRequired, argumentsLeft);
         }
     }
 

@@ -7,13 +7,11 @@ import at.tuwien.rocreateprofil.model.entity.profile.StringProfileColumn;
 import at.tuwien.rocreateprofil.model.entity.value.Type;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import java.util.*;
 
 public class Column {
 
@@ -119,5 +117,40 @@ public class Column {
         object.put(Xlsx2rocrateSchema.MISSING_VALUES, missingValues);
         // Write column profile as well
         columnProfile.writeToFile(object);
+    }
+
+    public String generateValidValueForColumn() {
+        if (Math.random() >= ColumnProfile.MISSING_VALUE_PROPORTION) {
+            return columnProfile.generateValidValue();
+        }
+        return StringUtils.EMPTY;
+    }
+
+    public Set<String> getCategories() {
+        return categories;
+    }
+
+    public int getCategoricalThreshold() {
+        return categoricalThreshold;
+    }
+
+    public String getHeaderName() {
+        return headerName;
+    }
+
+    public void setHeaderName(String headerName) {
+        this.headerName = headerName;
+    }
+
+    public ColumnProfile getColumnProfile() {
+        return columnProfile;
+    }
+
+    public void setColumnProfile(ColumnProfile columnProfile) {
+        this.columnProfile = columnProfile;
+    }
+
+    public void setMissingValues(boolean missingValues) {
+        this.missingValues = missingValues;
     }
 }

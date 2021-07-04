@@ -3,7 +3,7 @@ package at.tuwien.rocreateprofil.arguments.handler;
 import at.tuwien.rocreateprofil.arguments.CommandLineArgument;
 import at.tuwien.rocreateprofil.convertor.Convertor;
 import at.tuwien.rocreateprofil.convertor.Excel2RoCrateConvertor;
-import at.tuwien.rocreateprofil.exception.Error;
+import at.tuwien.rocreateprofil.exception.RoCrateError;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 
 import java.io.File;
@@ -34,7 +34,7 @@ public class Excel2RoCrateArgumentHandler implements ArgumentHandler {
             URL licenseUrl = new URL(licenseUrlString);
             currentArgumentMap.put(Excel2RoCrateConvertor.LICENSE_URL, licenseUrl);
         } catch (MalformedURLException e) {
-            throw new RoCrateProfileBaseException(Error.INVALID_LICENSE_URL, licenseUrlString);
+            throw new RoCrateProfileBaseException(RoCrateError.INVALID_LICENSE_URL, licenseUrlString);
         }
     }
 

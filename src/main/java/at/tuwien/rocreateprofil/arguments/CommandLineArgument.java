@@ -3,7 +3,7 @@ package at.tuwien.rocreateprofil.arguments;
 import at.tuwien.rocreateprofil.arguments.handler.Excel2RoCrateArgumentHandler;
 import at.tuwien.rocreateprofil.arguments.handler.HelpArgumentHandler;
 import at.tuwien.rocreateprofil.arguments.handler.RoCrate2ExcelArgumentHandler;
-import at.tuwien.rocreateprofil.exception.Error;
+import at.tuwien.rocreateprofil.exception.RoCrateError;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 
 public enum CommandLineArgument {
@@ -29,7 +29,7 @@ public enum CommandLineArgument {
                 return checkedArgument;
             }
         }
-        throw new RoCrateProfileBaseException(Error.UNKNOWN_ARGUMENT, argumentToResolve);
+        throw new RoCrateProfileBaseException(RoCrateError.UNKNOWN_ARGUMENT, argumentToResolve);
     }
 
     public String getArgument() {

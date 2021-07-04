@@ -1,11 +1,11 @@
 package at.tuwien.rocreateprofil.convertor.excel;
 
-import at.tuwien.rocreateprofil.exception.Error;
+import at.tuwien.rocreateprofil.exception.RoCrateError;
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 
 import java.io.File;
 
-import static at.tuwien.rocreateprofil.exception.Error.FILE_NOT_FOUND;
+import static at.tuwien.rocreateprofil.exception.RoCrateError.FILE_NOT_FOUND;
 
 public class ExcelFileGuard {
 
@@ -19,7 +19,7 @@ public class ExcelFileGuard {
     private static void guardFileHasAcceptableSuffix(String fileLocation) {
         String suffix = resolveSuffix(fileLocation);
         if (!ACCEPTABLE_SUFFIX.equals(suffix)) {
-            throw new RoCrateProfileBaseException(Error.INVALID_EXCEL_FILE_SUFFIX);
+            throw new RoCrateProfileBaseException(RoCrateError.INVALID_EXCEL_FILE_SUFFIX);
         }
     }
 

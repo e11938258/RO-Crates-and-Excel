@@ -1,13 +1,12 @@
 package at.tuwien.rocreateprofil.convertor.excel.parser.metadata;
 
 import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
-import at.tuwien.rocreateprofil.model.entity.RoCrateModel;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 import java.nio.file.Path;
 
-import static at.tuwien.rocreateprofil.exception.Error.FAILED_TO_PROCESS_EXCEL_METADATA;
+import static at.tuwien.rocreateprofil.exception.RoCrateError.FAILED_TO_PROCESS_EXCEL_METADATA;
 
 public class ExcelAppMetadataXmlParser {
 
@@ -24,6 +23,7 @@ public class ExcelAppMetadataXmlParser {
 
     }
 
+
     public static String parseApplicationVersion(Path extractedPath) {
         try {
             Document doc = XmlFileOpener.openDocument(extractedPath.toString() + "/" + APP_METADATA_FILE);
@@ -31,7 +31,7 @@ public class ExcelAppMetadataXmlParser {
             NodeList list = doc.getElementsByTagNameNS("*", "AppVersion");
             return list.item(0).getFirstChild().getTextContent();
         } catch (Exception e) {
-            throw new RoCrateProfileBaseException(FAILED_TO_PROCESS_EXCEL_METADATA);
+            return null;
         }
     }
 }

@@ -7,7 +7,7 @@ import at.tuwien.rocreateprofil.exception.RoCrateProfileBaseException;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
-import static at.tuwien.rocreateprofil.exception.Error.*;
+import static at.tuwien.rocreateprofil.exception.RoCrateError.*;
 
 public class CommandLineArgumentHandler {
 

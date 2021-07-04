@@ -1,5 +1,6 @@
 package at.tuwien.rocreateprofil.model.entity.rocrate.meta;
 
+import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,6 +28,7 @@ public class RootDataEntityBuilder {
         JSONArray fileArray = new JSONArray();
         fileArray = updateWithAlreadyAddedFiles(rootDataEntity, fileArray);
         appendNewFile(file, fileArray);
+        rootDataEntity.put(HAS_PART, fileArray);
     }
 
     private static void appendNewFile(File file, JSONArray fileArray) {

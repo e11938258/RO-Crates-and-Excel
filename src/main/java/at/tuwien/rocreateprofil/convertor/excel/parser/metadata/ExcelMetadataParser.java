@@ -42,13 +42,21 @@ public class ExcelMetadataParser implements ExcelParser {
     }
 
     private void addAuthorInformation(JSONArray roCrateMetadataGraph, JSONObject fileDataEntity, Path extractedPath) {
-        JSONObject authorReference = addAuthorToFileEntity(fileDataEntity);
-        addAuthorAuthorContextEntityToGraph(roCrateMetadataGraph, extractedPath, authorReference);
+        if (isAuthorPresent(extractedPath)) {
+            JSONObject authorReference = addAuthorToFileEntity(fileDataEntity);
+            addAuthorAuthorContextEntityToGraph(roCrateMetadataGraph, extractedPath, authorReference);
+        }
     }
 
     private void addCreatedAndModifiedDatesToFile(JSONObject fileDataEntity, Path extractedPath) {
-        fileDataEntity.put(RoCrateSchema.CREATED, ExcelCoreMetadataXmlParser.parseCreatedDate(extractedPath));
-        fileDataEntity.put(RoCrateSchema.MODIFIED, ExcelCoreMetadataXmlParser.parseModifiedDate(extractedPath));
+        String createdDate = ExcelCoreMetadataXmlParser.parseCreatedDate(extractedPath);
+        if (createdDate != null) {
+            fileDataEntity.put(RoCrateSchema.CREATED, createdDate);
+        }
+        String modifiedDate = ExcelCoreMetadataXmlParser.parseModifiedDate(extractedPath);
+        if (modifiedDate != null) {
+            fileDataEntity.put(RoCrateSchema.MODIFIED, modifiedDate);
+        }
     }
 
     private Path extractExcelAsZip(File sourceFile) {
@@ -67,5 +75,9 @@ public class ExcelMetadataParser implements ExcelParser {
         String authorName = ExcelCoreMetadataXmlParser.parseAuthor(extractedPath);
         JSONObject authorContextEntity = PersonContextEntityBuilder.build(authorReference.get(RoCrateSchema.ID).toString(), authorName);
         roCrateMetadataGraph.add(authorContextEntity);
+    }
+
+    private boolean isAuthorPresent(Path extractedPath) {
+        return ExcelCoreMetadataXmlParser.parseAuthor(extractedPath) != null;
     }
 }

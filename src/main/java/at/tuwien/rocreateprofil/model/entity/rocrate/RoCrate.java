@@ -1,10 +1,10 @@
 package at.tuwien.rocreateprofil.model.entity.rocrate;
 
+import at.tuwien.rocreateprofil.convertor.rocrate.JsonFileParser;
 import at.tuwien.rocreateprofil.model.entity.rocrate.meta.*;
 import at.tuwien.rocreateprofil.model.entity.rocrate.meta.util.RoCrateMetaUtil;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateOutputCreator;
 import at.tuwien.rocreateprofil.output.rocrate.RoCrateSchema;
-import org.apache.commons.lang3.NotImplementedException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -17,6 +17,8 @@ import java.util.logging.Logger;
 
 public class RoCrate {
 
+    private static final String RO_CRATE_METADATA_LOCATION_RELATIVE_TO_ROOT = "/ro-crate-metadata.json";
+
     private Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
 
     private String roCrateLocation;
@@ -27,6 +29,10 @@ public class RoCrate {
     public RoCrate(String roCrateLocation, URL license) {
         this.roCrateLocation = roCrateLocation;
         initializeRoCrateMetadata(license);
+    }
+
+    private RoCrate(String roCrateLocation) {
+        this.roCrateLocation = roCrateLocation;
     }
 
     public void addExcelFile(File file) {
@@ -65,6 +71,10 @@ public class RoCrate {
         return roCrateMetadata;
     }
 
+    private void setRoCrateMetadata(JSONObject roCrateMetadata) {
+        this.roCrateMetadata = roCrateMetadata;
+    }
+
     public List<File> getFiles() {
         return files;
     }
@@ -77,9 +87,11 @@ public class RoCrate {
         RoCrateOutputCreator.dumpRoCrate(this);
     }
 
-    public static RoCrate load(String roCrateLocation) {
-        throw new NotImplementedException();
-//        return new RoCrate(roCrateLocation);
+    public static RoCrate loadFromFile(String roCrateLocation) {
+        RoCrate roCrate = new RoCrate(roCrateLocation);
+        roCrate.setRoCrateMetadata(JsonFileParser.parseFileIntoJSONObject(roCrateLocation + RO_CRATE_METADATA_LOCATION_RELATIVE_TO_ROOT));
+        return roCrate;
     }
+
 
 }

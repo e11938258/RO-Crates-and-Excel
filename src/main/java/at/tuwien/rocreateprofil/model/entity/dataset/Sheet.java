@@ -13,6 +13,7 @@ public class Sheet {
     private final List<Row> rows = new ArrayList<>();
     private final String name, id;
     private boolean missingValues = false;
+    private Long numberOfColumns, numberOfRows;
 
     public Sheet(String name, String id) {
         this.name = name;
@@ -33,10 +34,12 @@ public class Sheet {
 
     public void addColumn(Column column) {
         columns.add(column);
+        numberOfColumns = (long) columns.size();
     }
 
     public void addRow(Row row) {
         rows.add(row);
+        numberOfRows = (long) rows.size();
     }
 
     public Column getColumn(String id) {
@@ -82,8 +85,8 @@ public class Sheet {
         object.put(RoCrateSchema.TYPE, typesArr);
         
         // Number of column, rows
-        object.put(Xlsx2rocrateSchema.NUMBER_OF_COLS, columns.size());
-        object.put(Xlsx2rocrateSchema.NUMBER_OF_ROWS, rows.size());
+        object.put(Xlsx2rocrateSchema.NUMBER_OF_COLS, numberOfColumns);
+        object.put(Xlsx2rocrateSchema.NUMBER_OF_ROWS, numberOfRows);
         // Missing values
         object.put(Xlsx2rocrateSchema.MISSING_VALUES, missingValues);
 
@@ -100,5 +103,21 @@ public class Sheet {
         }
 
         object.put(RoCrateSchema.COMPONENTS, componentsArr);
+    }
+
+    public Long getNumberOfColumns() {
+        return numberOfColumns;
+    }
+
+    public void setNumberOfColumns(Long numberOfColumns) {
+        this.numberOfColumns = numberOfColumns;
+    }
+
+    public Long getNumberOfRows() {
+        return numberOfRows;
+    }
+
+    public void setNumberOfRows(Long numberOfRows) {
+        this.numberOfRows = numberOfRows;
     }
 }

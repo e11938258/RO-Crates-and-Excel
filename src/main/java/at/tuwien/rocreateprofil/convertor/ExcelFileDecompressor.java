@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static at.tuwien.rocreateprofil.exception.Error.EXCEL_UNZIP_FAILED;
+import static at.tuwien.rocreateprofil.exception.RoCrateError.EXCEL_UNZIP_FAILED;
 
 public class ExcelFileDecompressor {
 

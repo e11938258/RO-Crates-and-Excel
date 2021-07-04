@@ -1,15 +1,19 @@
 package at.tuwien.rocreateprofil.model.entity.profile;
 
 import at.tuwien.rocreateprofil.model.entity.dataset.Cell;
+import at.tuwien.rocreateprofil.model.entity.dataset.ColumnType;
+import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.ColumnProfileMapper;
+import at.tuwien.rocreateprofil.model.entity.dataset.mapper.columnprofile.NumericColumnProfileMapper;
 import at.tuwien.rocreateprofil.model.entity.value.Type;
 import at.tuwien.rocreateprofil.output.rocrate.Xlsx2rocrateSchema;
+import org.json.simple.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
-import org.json.simple.JSONObject;
+import java.util.Random;
 
 public class NumericProfileColumn implements ColumnProfile {
 
-    private Type type = Type.NumericValue;
     // Attributes
     private Double min = Double.MAX_VALUE, max = Double.MIN_VALUE, mean = null,
             stdev = null, median = null, sum = 0.0;
@@ -69,8 +73,8 @@ public class NumericProfileColumn implements ColumnProfile {
     }
 
     @Override
-    public Type getType() {
-        return type;
+    public ColumnType getColumnType() {
+        return ColumnType.NUMERIC;
     }
 
     @Override
@@ -97,4 +101,81 @@ public class NumericProfileColumn implements ColumnProfile {
         }
         object.put(Xlsx2rocrateSchema.INTEGER, integer);
     }
+
+    @Override
+    public ColumnProfileMapper getProfileMapper() {
+        return new NumericColumnProfileMapper();
+    }
+
+    public Double getMin() {
+        return min;
+    }
+
+    public void setMin(Double min) {
+        this.min = min;
+    }
+
+    public Double getMax() {
+        return max;
+    }
+
+    public void setMax(Double max) {
+        this.max = max;
+    }
+
+    public Double getMean() {
+        return mean;
+    }
+
+    public void setMean(Double mean) {
+        this.mean = mean;
+    }
+
+    public Double getStdev() {
+        return stdev;
+    }
+
+    public void setStdev(Double stdev) {
+        this.stdev = stdev;
+    }
+
+    public Double getMedian() {
+        return median;
+    }
+
+    public void setMedian(Double median) {
+        this.median = median;
+    }
+
+    public Double getSum() {
+        return sum;
+    }
+
+    public void setSum(Double sum) {
+        this.sum = sum;
+    }
+
+    public Integer getNumberOfSamples() {
+        return numberOfSamples;
+    }
+
+    public void setNumberOfSamples(Integer numberOfSamples) {
+        this.numberOfSamples = numberOfSamples;
+    }
+
+    public boolean isInteger() {
+        return integer;
+    }
+
+    public void setInteger(boolean integer) {
+        this.integer = integer;
+    }
+
+    @Override
+    public String generateValidValue() {
+        Random r = new Random();
+        double cellValue = r.nextGaussian()*stdev+mean;
+        return String.valueOf(integer ? (int) cellValue : cellValue);
+    }
+
 }
