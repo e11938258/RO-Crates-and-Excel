@@ -2,7 +2,7 @@
 
 ## Goal
 
-The goal of the RO-Crates-and-Excel application is to provide the data model for describing data of the excel file in the form RO-Crate. The RO-Crate describes the contained objects in JSON-LD format. The resulting JOSN-LD model should be representative of the dataset contained in the excel file and should facilitate machine actionability. This was kept in mind when desinging the model, an extension to RO-Crate base model, primarily to support dataset search.   
+The goal of the RO-Crates-and-Excel application is to provide the data model for describing data of the excel file in the form RO-Crate. The RO-Crate describes the contained objects in JSON-LD format. The resulting JSON-LD model should be representative of the dataset contained in the excel file and should facilitate machine actionability. This was kept in mind when desinging the model, an extension to RO-Crate base model, primarily to support dataset search.   
 
 Queries can be done on 2 levels - the dataset level and the column, dimension, level. Dataset relates to 1 sheet of the excel. We selected the following attributes describing both of those core concepts. (Note that this is an aggregate list and there is further subdivision based on the column type)
 
